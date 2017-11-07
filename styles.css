@@ -1,0 +1,104 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,400,600');
+body { font-family: 'Raleway', sans-serif !important; overflow: hidden; }
+.fw-6 { font-weight: 600; }
+.fw-4 { font-weight: 400; }
+.fw-2 { font-weight: 200; }
+.f-it { font-style: italic; }
+.f-black { color:#1c1c1c; }
+.f-white { color:#ffffff; }
+.fs-1 { font-size:1em; }  	/*  Use in menus and such */
+.fs-2 { font-size:1.1em; }
+.fs-3 { font-size:1.2em; }	/*  Use for texts */
+.fs-4 { font-size:1.4em; } 	
+.fs-5 { font-size:1.6em; }	/*  Use for titles */
+.fs-6 { font-size:1.8em; }
+.flh-1 { line-height: 1.2em; }
+.flh-2 { line-height: 1.4em; }
+.flh-3 { line-height: 1.6em; }
+.f-inherit { font-family: inherit !important; }
+
+/* Links */
+a {	text-decoration: none ; color:inherit ; }
+a:hover { text-decoration: none ; color:inherit ; }
+a:visited { text-decoration: none ; color:inherit ; }
+
+/* Viewports */
+.vh-100 { min-height: 100vh ; }
+.vh-90 { min-height: 90vh ; }
+.vh-80 { min-height: 80vh ; }
+.vh-70 { min-height: 70vh ; }
+.vh-60 { min-height: 60vh ; }
+.vh-50 { min-height: 50vh ; }
+.vh-40 { min-height: 40vh ; }
+.vh-30 { min-height: 30vh ; }
+.vh-25 { min-height: 25vh ; }
+.vh-20 { min-height: 20vh ; }
+.vh-15 { min-height: 15vh ; }
+.vh-10 { min-height: 10vh ; }
+.vh-9 { min-height: 9vh ; }
+
+.vw-100 { min-width: 100vw ; }
+.vw-75 { min-width: 75vw ; }
+.vw-50 { min-width: 50vw ; }
+.vw-25 { min-width: 25vw ; }
+.vw-10 { min-width: 10vw ; }
+
+/* Spacers */
+.spacer-2 { min-height: 2vh; }
+.spacer-4 { min-height: 4vh; }
+.spacer-6 { min-height: 6vh; }
+.spacer-8 { min-height: 8vh; }
+
+/* Colors */
+.black { background-color: #1c1c1c; }
+.orange { background-color: #f47d3d; }
+.light-orange { background-color: #f2874d; }
+.white { background-color: white; }
+.blue { background-color: #41516b; }
+.steam { background-color: #666666; }
+
+.dark-primary-color    { background: #616161; }
+.default-primary-color { background: #9E9E9E; }
+.light-primary-color   { background: #F5F5F5; }
+.text-primary-color    { color: #212121; }
+.accent-color          { background: #1c1c1c; }
+.primary-text-color    { color: #212121; }
+.secondary-text-color  { color: #757575; }
+.divider-color         { border-color: #BDBDBD; }
+
+/* Cursors */
+.cp { cursor: pointer; }
+.cd { cursor: no-drop; }
+
+/* Images */
+.round { border-radius: 3em; }
+
+/* Specifics */
+#navbar { border-bottom: 0.25em solid #9E9E9E; }
+
+.countryFlag {
+	filter: gray; /* IE6-9 */
+	-webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+	filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+	-webkit-transition-property: filter;
+	transition-property: filter;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+}
+
+/* Disable grayscale on hover */
+.countryFlag:hover {
+	-webkit-filter: grayscale(0);
+	filter: none;
+}
+
+.activeCountry {
+	-webkit-filter: grayscale(0);
+  	filter: none;
+}
+
+.dataBox {
+	border: 1px solid #c1c1c1;
+	background-color: #f2f2f2;
+}
