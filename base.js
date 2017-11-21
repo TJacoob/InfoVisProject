@@ -1,5 +1,6 @@
 var dataset;
 var dataset5;
+var download_dataset;
 var time = 0;
 var time_samples = ["April 2015", "July 2015","October 2015","December 2015" ,"February 2016","May 2016", "September 2016", "November 2016", "January 2017","March 2017", "June 2017", "October 2017"];
 var country = [];
@@ -26,9 +27,17 @@ d3.json("Data/Game Tag Data/GameTagDate.json", function (data) {
     }	
 })
 
-d3.json("Data/Game Tag Data/actionCoordinates.json", function (data) {
-    actionArray = data;
-})
+function getDownloadData(){
+	d3.csv("data/download/"+time+".csv", function (data) {
+		console.log(data);
+	    download_dataset = data;
+	})
+}
+
+function gen_vis()
+{
+	var w = $("#vis1").width();
+	var h = $("#vis1").height();
 
 d3.json("Data/Game Tag Data/indieCoordinates.json", function (data) {
     indieArray = data;  
@@ -66,9 +75,41 @@ function updateCountryDisplay() // Corre todas as bandeiras, remove a classe que
 			$(this).addClass("activeCountry");
 		}
 	})
+	worldmap();
+}
+
+function worldmap()
+{
+	$(document).ready(function(){
+		var a = document.getElementById("worldmap");
+
+		var svgDoc = a.contentDocument; //get the inner DOM of alpha.svg
+		var svgRoot  = svgDoc.documentElement;
+
+		$(".land",svgRoot).each(function(){
+			// Must be refactored because this causes extra load and is confuse af
+			$(this).removeClass("selected");
+			if ( $(this).children()[0] != undefined )
+			{
+				let str = $(this).children()[0].innerHTML;
+				if ( str.indexOf(":") > -1 )
+					$(this).children()[0].innerHTML=str.substring(0,str.indexOf(":"));
+			}
+		});
+
+		country.forEach(function(c){
+			{
+				$("#"+c,svgRoot).addClass("selected");
+				data = download_dataset.find(o => o.country === c).value;
+				$("#"+c,svgRoot).children()[0].innerHTML += ": "+data+" PB";
+			}	
+		});
+	})
 }
  
 function startup(){
+
+	getDownloadData();
 
 	$( function() {
 		$( "#slider" ).slider(
@@ -81,6 +122,8 @@ function startup(){
 					//$( "#currentTime" ).text(time_samples[time]);
 					$( "#currentTime" ).text(time);
                     changeCircleColor(currentTag);
+					getDownloadData();
+					updateCountryDisplay();
 				}
 			}
 		);
@@ -96,6 +139,8 @@ function startup(){
   	} );
     
     axisCreator();
+
+  	worldmap();
 }
 
 //ScatterPlot - VIS5 Function
