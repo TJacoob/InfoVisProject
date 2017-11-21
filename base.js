@@ -1,4 +1,5 @@
 var dataset;
+var download_dataset;
 var time = 0;
 var time_samples = ["May 2015","June 2015"];
 var country = [];
@@ -8,6 +9,13 @@ d3.json("oscar_winners.json", function (data) {
     
     gen_vis();
 })
+
+function getDownloadData(){
+	d3.csv("data/download/"+time+".csv", function (data) {
+		console.log(data);
+	    download_dataset = data;
+	})
+}
 
 function gen_vis()
 {
@@ -54,9 +62,41 @@ function updateCountryDisplay() // Corre todas as bandeiras, remove a classe que
 			$(this).addClass("activeCountry");
 		}
 	})
+	worldmap();
+}
+
+function worldmap()
+{
+	$(document).ready(function(){
+		var a = document.getElementById("worldmap");
+
+		var svgDoc = a.contentDocument; //get the inner DOM of alpha.svg
+		var svgRoot  = svgDoc.documentElement;
+
+		$(".land",svgRoot).each(function(){
+			// Must be refactored because this causes extra load and is confuse af
+			$(this).removeClass("selected");
+			if ( $(this).children()[0] != undefined )
+			{
+				let str = $(this).children()[0].innerHTML;
+				if ( str.indexOf(":") > -1 )
+					$(this).children()[0].innerHTML=str.substring(0,str.indexOf(":"));
+			}
+		});
+
+		country.forEach(function(c){
+			{
+				$("#"+c,svgRoot).addClass("selected");
+				data = download_dataset.find(o => o.country === c).value;
+				$("#"+c,svgRoot).children()[0].innerHTML += ": "+data+" PB";
+			}	
+		});
+	})
 }
  
 function startup(){
+
+	getDownloadData();
 
 	$( function() {
 		$( "#slider" ).slider(
@@ -68,6 +108,8 @@ function startup(){
 					time = $( "#slider" ).slider("value");
 					//$( "#currentTime" ).text(time_samples[time]);
 					$( "#currentTime" ).text(time);
+					getDownloadData();
+					updateCountryDisplay();
 				}
 			}
 		);
@@ -81,4 +123,15 @@ function startup(){
 		//$( ".dataBox" ).draggable({ containment: "#sortable", scroll: false });
 		//$( "ul, li" ).disableSelection();
   	} );
+
+  	worldmap();
+}
+
+
+function search(nameKey, myArray){
+    for (var i=0; i < myArray.length; i++) {
+        if (myArray[i].name === nameKey) {
+            return myArray[i];
+        }
+    }
 }
