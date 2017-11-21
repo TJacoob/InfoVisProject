@@ -40,7 +40,10 @@ function toggleCountry(code)
 	}
 	else
 	{
-		country.push(code);
+		if ( country.length < 4 )
+			country.push(code);
+		else
+			console.log("demasiados países");
 	}
 	updateCountryDisplay();
 }
