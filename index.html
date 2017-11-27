@@ -113,20 +113,32 @@
                 </ul>
                 -->
                 <div class="row m-0 justify-content-center" id="sortable">
-                    <div class="col mx-2 my-1 dataBox cp">
+                    <div class="col mx-2 my-1 dataBox cp"  >
                         <svg heigth="200" width="800" id="vis1"></svg>
                     </div>
-                    <div class="col mx-2 my-1 dataBox cp" id="vis2">                        
-                        <svg heigth="200" width="200"></svg>
+                    <div class="col mx-2 my-1 dataBox cp">
+                        <svg heigth="200" width="200" id="vis2" ></svg>
                     </div>
-                    <div class="col mx-2 my-1 dataBox cp" id="vis3">
-                        <svg heigth="200" width="200"></svg>
+                    <div class="col mx-2 my-1 dataBox cp" >
+                        <svg heigth="200" width="200" id="vis3"></svg>
                     </div>
-                    <div class="col mx-2 my-1 dataBox cp" id="vis4">
-                        <svg heigth="200" width="200"></svg>
+                    <div class="col mx-2 my-1 dataBox cp">
+                        <svg heigth="200" width="200"  id="vis4"></svg>
                     </div>
-                    <div class="col mx-2 my-1 dataBox cp" id="vis5">
-                        <svg heigth="200" width="200"></svg>
+                    <div class="col mx-2 my-1 dataBox cp">
+                        <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                 Game Tags <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a class="m" value="Action" onClick='dropdown5Select(0)'>Action</a></li>
+                            <li><a class="m" value="Indie" onClick='dropdown5Select(1)'>Indie</a></li>
+                            <li><a class="m" value="RPG" onClick='dropdown5Select(2)'>RPG</a></li>
+                            <li><a class="m" value="Strategy" onClick='dropdown5Select(3)'>Strategy</a></li>
+                        </ul>
+                    </div>
+                    
+                        <svg heigth="300" width="200" id="vis5"></svg>
                     </div>
                 </div>
                 <!--

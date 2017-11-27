@@ -1,0 +1,178 @@
+[
+  {
+    "Tag": "Games with tag",
+    "Month": "April 2015",
+    "Action": 2110,
+    "Indie": 2384,
+    "RPG": 854,
+    "Strategy": 1116
+  },
+  {
+    "Tag": "Average Price",
+    "Month": "April 2015",
+    "Action": "12.41$",
+    "Indie": "10.35$",
+    "RPG": "13.11$",
+    "Strategy": "13.3$"
+  },
+  {
+    "Tag": "Games with tag",
+    "Month": "July 2015",
+    "Action": 2345,
+    "Indie": 2726,
+    "RPG": 949,
+    "Strategy": 1218
+  },
+  {
+    "Tag": "Average Price",
+    "Month": "July 2015",
+    "Action": "12.51$",
+    "Indie": "10.13$",
+    "RPG": "13.07$",
+    "Strategy": "13.15$"
+  },
+  {
+    "Tag": "Games with tag",
+    "Month": "October 2015",
+    "Action": 2743,
+    "Indie": 3449,
+    "RPG": 1094,
+    "Strategy": 1406
+  },
+  {
+    "Tag": "Average Price",
+    "Month": "October 2015",
+    "Action": "11.58$",
+    "Indie": "8.23$",
+    "RPG": "12.58$",
+    "Strategy": "12.75$"
+  },
+  {
+    "Tag": "Games with tag",
+    "Month": "December 2015",
+    "Action": 3050,
+    "Indie": 3638,
+    "RPG": 1208,
+    "Strategy": 1554
+  },
+  {
+    "Tag": "Average Price",
+    "Month": "December 2015",
+    "Action": "11.56$",
+    "Indie": "5.92$",
+    "RPG": "12.62$",
+    "Strategy": "12.65$"
+  },
+  {
+    "Tag": "Games with tag",
+    "Month": "April 2016",
+    "Action": 3414,
+    "Indie": 4462,
+    "RPG": 1400,
+    "Strategy": 1745
+  },
+  {
+    "Tag": "Average Price",
+    "Month": "April 2016",
+    "Action": "10.95$",
+    "Indie": "9.12$",
+    "RPG": "11.97$",
+    "Strategy": "12.33$"
+  },
+  {
+    "Tag": "Games with tag",
+    "Month": "July 2016",
+    "Action": 3987,
+    "Indie": 5453,
+    "RPG": 1553,
+    "Strategy": 1908
+  },
+  {
+    "Tag": "Average Price",
+    "Month": "July 2016",
+    "Action": "10.5$",
+    "Indie": "8.77$",
+    "RPG": "11.91$",
+    "Strategy": "6.41$"
+  },
+  {
+    "Tag": "Games with tag",
+    "Month": "October 2016",
+    "Action": 4767,
+    "Indie": 6271,
+    "RPG": 1787,
+    "Strategy": 2246
+  },
+  {
+    "Tag": "Average Price",
+    "Month": "October 2016",
+    "Action": "10.08$",
+    "Indie": "8.42$",
+    "RPG": "11.41$",
+    "Strategy": "11.44$"
+  },
+  {
+    "Tag": "Games with tag",
+    "Month": "November 2016",
+    "Action": 4897,
+    "Indie": 6693,
+    "RPG": 1871,
+    "Strategy": 2366
+  },
+  {
+    "Tag": "Average Price",
+    "Month": "November 2016",
+    "Action": "5.95$",
+    "Indie": "8.42$",
+    "RPG": "11.29$",
+    "Strategy": "11.4$"
+  },
+  {
+    "Tag": "Games with tag",
+    "Month": "February 2017",
+    "Action": 5332,
+    "Indie": 7360,
+    "RPG": 2026,
+    "Strategy": 2511
+  },
+  {
+    "Tag": "Average Price",
+    "Month": "February 2017",
+    "Action": "9.79$",
+    "Indie": "8.24$",
+    "RPG": "10.87$",
+    "Strategy": "11.22$"
+  },
+  {
+    "Tag": "Games with tag",
+    "Month": "July 2017",
+    "Action": 6228,
+    "Indie": 8824,
+    "RPG": 2311,
+    "Strategy": 2847
+  },
+  {
+    "Tag": "Average Price",
+    "Month": "July 2017",
+    "Action": "5.18$",
+    "Indie": "4.59$",
+    "RPG": "5.93$",
+    "Strategy": "5.79$"
+  },
+  {
+    "Tag": "Games with tag",
+    "Month": "October 2017",
+    "Action": 7091,
+    "Indie": 6174,
+    "RPG": 2558,
+    "Strategy": 3215
+  },
+  {
+    "Tag": "Average Price",
+    "Month": "October 2017",
+    "Action": "9.25$",
+    "Indie": "8.89 $",
+    "RPG": "10.71$",
+    "Strategy": "10.62$"
+  }
+]
