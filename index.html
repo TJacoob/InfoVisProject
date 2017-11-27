@@ -130,6 +130,7 @@
                         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="buttonGT">
                                  Game Tags <span class="caret"></span>
                         </button>
+                        <!--<div id="popupV5" style="display: none">HEYYY</div>  <!- lool não pode ser isto assim xD-->
                         <ul class="dropdown-menu" role="menu">
                             <li><a class="m" value="Action" onClick='dropdown5Select(0)'>Action</a></li>
                             <li><a class="m" value="Indie" onClick='dropdown5Select(1)'>Indie</a></li>
@@ -138,7 +139,11 @@
                         </ul>
                     </div>
                     
-                        <svg heigth="300" width="200" id="vis5"></svg>
+                        <svg heigth="800" width="600" id="vis5">
+                        <!--<text id="thepopup" x="250" y="100" font-size="30" fill="black" visibility="hidden">Change me
+                            <set attributeName="visibility" from="hidden" to="visible" begin="thingyouhoverover.mouseover" end="thingyouhoverover.mouseout"/>-->
+                            <text id="tooltipv5" x="0" y="0" visibility="hidden">Tooltip</text>
+                        </svg>
                     </div>
                 </div>
                 <!--

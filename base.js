@@ -112,10 +112,10 @@ function axisCreator(){
 		
     var padding = 30;
     var bar_w = 20;
-    var r = 3;
+    var r = 2;
 
     var hscale = d3.scaleLinear()
-                         .domain([16,0])
+                         .domain([14,0])
                          .range([padding,h-padding]);
 			 
     var xscale = d3.scaleLinear()
@@ -130,8 +130,8 @@ function axisCreator(){
                 .ticks(dataset.length/2);
               
     var cscale = d3.scaleLinear()
-        .domain([d3.min(11, function(d) { return d[d.length];}),
-         d3.max(11, function(d) { return d[d.length];})])
+        .domain([d3.min(11, function(d) { return d[d.length-1];}),
+         d3.max(11, function(d) { return d[d.length-1];})])
         .range(["red", "yellow"]);
               
     gY = svg.append("g")
@@ -227,11 +227,25 @@ function scatterPlot (tag) {
           })
         .attr("cy",function(d) {
                return hscale(d.cy);
+            })
+        .on("mouseover", function(d){
+            // Put tooltip in the right position, change the text and make it visible
+            tooltip = document.getElementById("tooltipv5");
+            tooltip.setAttribute("x",xscale(d.cx));
+            tooltip.setAttribute("y",hscale(d.cy));
+            $(document).ready(function(){
+                $("#tooltipv5").text("Avg price: "+d.cy+"\nNumber Games = "+d.cx);
             });
+            tooltip.setAttribute("visibility","visible");
+            //scatterMouseOver(d);
+        })
+        .on("mouseout", function(d){
+            tooltip = document.getElementById("tooltipv5");
+            tooltip.setAttribute("visibility","hidden");
+        });
     
     changeCircleColor(tag);
-       //.on("mouseover", function(d){
-       //   console.log(d);});
+       //
 }
 
 function changeCircleColor(tag){
@@ -248,6 +262,18 @@ function changeCircleColor(tag){
 
     }
 
+function scatterMouseOver(object){
+    
+    var avgPrice = object.cy;
+    var totNumber = object.cx;
+    var month = time_samples[object.time];
+    console.log("all good: "+object);
+    
+}
+
+function HideTooltip(evt) {
+    ttooltip.setAttribute("visibility","hidden");
+}
 /*
 d3.json("Data/Game Tag Data/GameTagCombined.json", function (data) {
   
