@@ -11,6 +11,7 @@ d3.json("oscar_winners.json", function (data) {
 })
 
 function getDownloadData(){
+	console.log(time);
 	d3.csv("data/download/"+time+".csv", function (data) {
 		console.log(data);
 	    download_dataset = data;
@@ -76,6 +77,7 @@ function worldmap()
 		$(".land",svgRoot).each(function(){
 			// Must be refactored because this causes extra load and is confuse af
 			$(this).removeClass("selected");
+			$(this).css("opacity","1");
 			if ( $(this).children()[0] != undefined )
 			{
 				let str = $(this).children()[0].innerHTML;
@@ -85,13 +87,36 @@ function worldmap()
 		});
 
 		country.forEach(function(c){
-			{
-				$("#"+c,svgRoot).addClass("selected");
-				data = download_dataset.find(o => o.country === c).value;
-				$("#"+c,svgRoot).children()[0].innerHTML += ": "+data+" PB";
-			}	
+			$("#"+c,svgRoot).addClass("selected");
+			data = download_dataset.find(o => o.country === c).value;
+			$("#"+c,svgRoot).css("opacity",(data/100)+.5);
+			$("#"+c,svgRoot).children()[0].innerHTML += ": "+data+" PB";
 		});
 	})
+}
+
+function highlightCountry(c){
+	$(document).ready(function(){
+		var a = document.getElementById("worldmap");
+
+		var svgDoc = a.contentDocument; //get the inner DOM of alpha.svg
+		var svgRoot  = svgDoc.documentElement;
+
+		$("#"+c,svgRoot).css("stroke","#3f3f3f");
+		$("#"+c,svgRoot).css("stroke-width","1.5px");
+	})	
+}
+
+function unlightCountry(c){
+	$(document).ready(function(){
+		var a = document.getElementById("worldmap");
+
+		var svgDoc = a.contentDocument; //get the inner DOM of alpha.svg
+		var svgRoot  = svgDoc.documentElement;
+
+		$("#"+c,svgRoot).css("stroke","white");
+		$("#"+c,svgRoot).css("stroke-width","0.5");
+	})	
 }
  
 function startup(){
@@ -102,7 +127,7 @@ function startup(){
 		$( "#slider" ).slider(
 			{
 				min:0,
-				max:10,
+				max:9,
 				change: function( event, ui )
 				{
 					time = $( "#slider" ).slider("value");
@@ -125,13 +150,4 @@ function startup(){
   	} );
 
   	worldmap();
-}
-
-
-function search(nameKey, myArray){
-    for (var i=0; i < myArray.length; i++) {
-        if (myArray[i].name === nameKey) {
-            return myArray[i];
-        }
-    }
 }
