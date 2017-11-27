@@ -9,10 +9,10 @@ var actionArray = {};
 var indieArray = {};
 var rpgArray = {};
 var strategyArray = {};
-var vis5h;
-var vis5w; 
+var currentTag;
 
 
+//ScatterPlot Files
 d3.json("Data/Game Tag Data/GameTagDate.json", function (data) {
     //var json = JSON.parse('data');
     var json = data;
@@ -42,46 +42,7 @@ d3.json("Data/Game Tag Data/strategyCoordinates.json", function (data) {
     strategyArray = data;
 })
 
-
-function scatterPlot2 (tag) {
-    
-    
-    var svg = d3.select("#vis5")
-                .append("svg")
-                .attr("width",w)
-                .attr("height",h);
-		
-    
-    var padding = w / 20;
-    var bar_w = h / 20;
-    var r = 2;
-
-    var hscale = d3.scaleLinear()
-                         .domain([16,0])
-                         .range([padding,h-padding]);
-			 
-    var xscale = d3.scaleLinear()
-                       .domain([0,9000])
-                       .range([padding,w-padding]);
-	
-   svg.selectAll("circle")
-        .data(dataset)
-        .enter().append("circle")
-        .attr("r",r)
-        .attr("fill",color)
-        .attr("class", tag)
-        .attr("cx",function(d, i) {
-            return  xscale(d.cx);
-          })
-        .attr("cy",function(d) {
-               return hscale(d.cy);
-            });
-            
-       //.on("mouseover", function(d){
-       //   console.log(d);});
-}
-
-
+//Main Functions
 function toggleCountry(code)
 {
 	let index = country.indexOf(code) ;
@@ -119,6 +80,7 @@ function startup(){
 					time = $( "#slider" ).slider("value");
 					//$( "#currentTime" ).text(time_samples[time]);
 					$( "#currentTime" ).text(time);
+                    changeCircleColor(currentTag);
 				}
 			}
 		);
@@ -136,7 +98,9 @@ function startup(){
     axisCreator();
 }
 
+//ScatterPlot - VIS5 Function
 function axisCreator(){
+
     dataset = strategyArray;
     w = $("#vis5").width();
 	h = $("#vis5").height();
@@ -145,7 +109,6 @@ function axisCreator(){
                 .append("svg")
                 .attr("width",w)
                 .attr("height",h)
-		
 		
     var padding = 30;
     var bar_w = 20;
@@ -167,10 +130,9 @@ function axisCreator(){
                 .ticks(dataset.length/2);
               
     var cscale = d3.scaleLinear()
-        .domain([d3.min(11, function(d) { return d[d.length-1];}),
-         d3.max(11, function(d) { return d[d.length-1];})])
+        .domain([d3.min(11, function(d) { return d[d.length];}),
+         d3.max(11, function(d) { return d[d.length];})])
         .range(["red", "yellow"]);
-      
               
     gY = svg.append("g")
    	.attr("transform","translate(30,0)")  
@@ -184,47 +146,108 @@ function axisCreator(){
 }
 
 function dropdown5Select(tag){
-    
+    console.log("Time = "+time);
+    var name ="";
     switch(tag){
-        case 0:    
+        case 0:  
+            name = "Action";
             dataset = actionArray;
             color = "red";
         break;
         case 1:
+            name = "Indie";
             dataset = indieArray;
             color = "blue";
         break;
         case 2:
+            name = "RPG";
             dataset = rpgArray;
             color = "orange";
         break;
         case 3:
+            name = "Strategy";
             dataset = strategyArray;
             color = "green";
         break;
         default:
-            alert("peres");
+            alert("Html page changed!!");
         break;
     }
-    
+    //Change button Name
+    $(document).ready(function(){
+        $("#buttonGT").text(name);
+    });
+    // -- //
+    currentTag = tag;
     clearDots(tag);    
-    scatterPlot2(tag);
+    scatterPlot(tag);
             
 }
 
 function clearDots(tag){
-    console.log(tag)
+    console.log("Tag = "+tag);
     for(var z=0; z<4;z++){
         if(z!=tag){
             var elements = document.getElementsByClassName(z);
             if(elements!=null)
             for(var i=0; i<elements.length; i++) {
-                elements[i].setAttribute('fill','none');
+                elements[i].parentElement.remove(elements[i]); //Calls parent and deletes the child!
             }
         }
-    }    
-    
+    }       
 }
+
+function scatterPlot (tag) {    
+
+    var svg = d3.select("#vis5")
+                .append("svg")
+                .attr("width",w)
+                .attr("height",h);
+    
+    var padding = w / 20;
+    var bar_w = h / 20;
+    var r = 2;
+
+    var hscale = d3.scaleLinear()
+                         .domain([14,0])
+                         .range([padding,h-padding]);
+             
+    var xscale = d3.scaleLinear()
+                       .domain([0,9000])
+                       .range([padding,w-padding]);
+    
+   svg.selectAll("circle")
+        .data(dataset)
+        .enter().append("circle")
+        .attr("r",r)
+        .attr("fill",color)
+        .attr("class", tag)
+        .attr("cx",function(d, i) {
+            return  xscale(d.cx);
+          })
+        .attr("cy",function(d) {
+               return hscale(d.cy);
+            });
+    
+    changeCircleColor(tag);
+       //.on("mouseover", function(d){
+       //   console.log(d);});
+}
+
+function changeCircleColor(tag){
+    console.log("colour = "+color);
+    console.log("Tag = "+tag);
+    var elements = document.getElementsByClassName(tag);
+    if(elements!=null) //always true Except for an error
+        for(var i=0; i<elements.length; i++) {
+            if(i==time)
+                elements[i].setAttribute("fill","black");
+            else
+                elements[i].setAttribute("fill",color);
+        }
+
+    }
+
 /*
 d3.json("Data/Game Tag Data/GameTagCombined.json", function (data) {
   
@@ -335,7 +358,7 @@ d3.json("Data/Game Tag Data/GameTagCombined.json", function (data) {
     }
     console.log(actionArray);
     //NEste ponto temos 4 arrays organizados por cada tag e por data
-    scatterPlot2();
+    scatterPlot();
     gen_scatterplot();
 })
 */
