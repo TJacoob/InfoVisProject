@@ -61,7 +61,10 @@ function toggleCountry(code)
 	}
 	else
 	{
-		country.push(code);
+        if ( country.length >= 4)   // se já estiverem selecionados 4 países
+            alert("You can have a max of 4 countries selected\nSó podem estar selecionados 4 países");
+        else
+		  country.push(code);
 	}
 	updateCountryDisplay();
 }
