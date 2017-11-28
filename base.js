@@ -35,10 +35,9 @@ function getDownloadData(){
 	})
 }
 
-function gen_vis()
-{
-	var w = $("#vis1").width();
-	var h = $("#vis1").height();
+d3.json("Data/Game Tag Data/actionCoordinates.json", function (data) {
+    actionArray = data;
+})
 
 d3.json("Data/Game Tag Data/indieCoordinates.json", function (data) {
     indieArray = data;  
@@ -135,6 +134,7 @@ function unlightCountry(c){
 function startup(){
 
 	getDownloadData();
+    $( "#currentTime" ).text(time_samples[time]);
 
 	$( function() {
 		$( "#slider" ).slider(
@@ -145,7 +145,7 @@ function startup(){
 				{
 					time = $( "#slider" ).slider("value");
 					//$( "#currentTime" ).text(time_samples[time]);
-					$( "#currentTime" ).text(time);
+					$( "#currentTime" ).text(time_samples[time]);
                     changeCircleColor(currentTag);
 					getDownloadData();
 					updateCountryDisplay();
@@ -351,8 +351,7 @@ function changeCircleColor(tag){
             else
                 elements[i].setAttribute("fill",color);
         }
-
-    }
+}
 
 function scatterMouseOver(object){
     
@@ -363,9 +362,11 @@ function scatterMouseOver(object){
     
 }
 
-function HideTooltip(evt) {
+function HideTooltip(evt){
     ttooltip.setAttribute("visibility","hidden");
 }
+
+
 /*
 d3.json("Data/Game Tag Data/GameTagCombined.json", function (data) {
   
