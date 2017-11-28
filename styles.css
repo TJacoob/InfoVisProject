@@ -1,6 +1,6 @@
 /* Fonts */
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,400,600');
-body { font-family: 'Raleway', sans-serif !important; overflow: hidden; }
+body { font-family: 'Raleway', sans-serif !important; overflow: scroll; }
 .fw-6 { font-weight: 600; }
 .fw-4 { font-weight: 400; }
 .fw-2 { font-weight: 200; }
@@ -102,3 +102,8 @@ a:visited { text-decoration: none ; color:inherit ; }
 	border: 1px solid #c1c1c1;
 	background-color: #f2f2f2;
 }
+
+
+/* VISUALIZATION 5 STYLES*/
+
+/* Popups :) */

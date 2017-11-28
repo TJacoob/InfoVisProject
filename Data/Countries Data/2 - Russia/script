@@ -1,0 +1,4 @@
+for f in "Russian - S*":
+do
+    mysql -e "USE yourDatabase LOAD DATA LOCAL INFILE '"$f"'INTO TABLE yourtable"
+done

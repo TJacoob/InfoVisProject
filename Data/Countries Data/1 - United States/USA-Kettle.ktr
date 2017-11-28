@@ -1,0 +1,4855 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>USA-Kettle</name>
+    <description />
+    <extended_description />
+    <trans_version />
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>/</directory>
+    <parameters>
+    </parameters>
+    <log>
+      <trans-log-table>
+        <connection />
+        <schema />
+        <table />
+        <size_limit_lines />
+        <interval />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STATUS</id>
+          <enabled>Y</enabled>
+          <name>STATUS</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+          <subject />
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+          <subject />
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>STARTDATE</id>
+          <enabled>Y</enabled>
+          <name>STARTDATE</name>
+        </field>
+        <field>
+          <id>ENDDATE</id>
+          <enabled>Y</enabled>
+          <name>ENDDATE</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>DEPDATE</id>
+          <enabled>Y</enabled>
+          <name>DEPDATE</name>
+        </field>
+        <field>
+          <id>REPLAYDATE</id>
+          <enabled>Y</enabled>
+          <name>REPLAYDATE</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>Y</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+        <field>
+          <id>EXECUTING_SERVER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_SERVER</name>
+        </field>
+        <field>
+          <id>EXECUTING_USER</id>
+          <enabled>N</enabled>
+          <name>EXECUTING_USER</name>
+        </field>
+        <field>
+          <id>CLIENT</id>
+          <enabled>N</enabled>
+          <name>CLIENT</name>
+        </field>
+      </trans-log-table>
+      <perf-log-table>
+        <connection />
+        <schema />
+        <table />
+        <interval />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>SEQ_NR</id>
+          <enabled>Y</enabled>
+          <name>SEQ_NR</name>
+        </field>
+        <field>
+          <id>LOGDATE</id>
+          <enabled>Y</enabled>
+          <name>LOGDATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>INPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>INPUT_BUFFER_ROWS</name>
+        </field>
+        <field>
+          <id>OUTPUT_BUFFER_ROWS</id>
+          <enabled>Y</enabled>
+          <name>OUTPUT_BUFFER_ROWS</name>
+        </field>
+      </perf-log-table>
+      <channel-log-table>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>LOGGING_OBJECT_TYPE</id>
+          <enabled>Y</enabled>
+          <name>LOGGING_OBJECT_TYPE</name>
+        </field>
+        <field>
+          <id>OBJECT_NAME</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_NAME</name>
+        </field>
+        <field>
+          <id>OBJECT_COPY</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_COPY</name>
+        </field>
+        <field>
+          <id>REPOSITORY_DIRECTORY</id>
+          <enabled>Y</enabled>
+          <name>REPOSITORY_DIRECTORY</name>
+        </field>
+        <field>
+          <id>FILENAME</id>
+          <enabled>Y</enabled>
+          <name>FILENAME</name>
+        </field>
+        <field>
+          <id>OBJECT_ID</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_ID</name>
+        </field>
+        <field>
+          <id>OBJECT_REVISION</id>
+          <enabled>Y</enabled>
+          <name>OBJECT_REVISION</name>
+        </field>
+        <field>
+          <id>PARENT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>PARENT_CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>ROOT_CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>ROOT_CHANNEL_ID</name>
+        </field>
+      </channel-log-table>
+      <step-log-table>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>TRANSNAME</id>
+          <enabled>Y</enabled>
+          <name>TRANSNAME</name>
+        </field>
+        <field>
+          <id>STEPNAME</id>
+          <enabled>Y</enabled>
+          <name>STEPNAME</name>
+        </field>
+        <field>
+          <id>STEP_COPY</id>
+          <enabled>Y</enabled>
+          <name>STEP_COPY</name>
+        </field>
+        <field>
+          <id>LINES_READ</id>
+          <enabled>Y</enabled>
+          <name>LINES_READ</name>
+        </field>
+        <field>
+          <id>LINES_WRITTEN</id>
+          <enabled>Y</enabled>
+          <name>LINES_WRITTEN</name>
+        </field>
+        <field>
+          <id>LINES_UPDATED</id>
+          <enabled>Y</enabled>
+          <name>LINES_UPDATED</name>
+        </field>
+        <field>
+          <id>LINES_INPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_INPUT</name>
+        </field>
+        <field>
+          <id>LINES_OUTPUT</id>
+          <enabled>Y</enabled>
+          <name>LINES_OUTPUT</name>
+        </field>
+        <field>
+          <id>LINES_REJECTED</id>
+          <enabled>Y</enabled>
+          <name>LINES_REJECTED</name>
+        </field>
+        <field>
+          <id>ERRORS</id>
+          <enabled>Y</enabled>
+          <name>ERRORS</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>N</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+      </step-log-table>
+      <metrics-log-table>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
+        <field>
+          <id>ID_BATCH</id>
+          <enabled>Y</enabled>
+          <name>ID_BATCH</name>
+        </field>
+        <field>
+          <id>CHANNEL_ID</id>
+          <enabled>Y</enabled>
+          <name>CHANNEL_ID</name>
+        </field>
+        <field>
+          <id>LOG_DATE</id>
+          <enabled>Y</enabled>
+          <name>LOG_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_DATE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DATE</name>
+        </field>
+        <field>
+          <id>METRICS_CODE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_CODE</name>
+        </field>
+        <field>
+          <id>METRICS_DESCRIPTION</id>
+          <enabled>Y</enabled>
+          <name>METRICS_DESCRIPTION</name>
+        </field>
+        <field>
+          <id>METRICS_SUBJECT</id>
+          <enabled>Y</enabled>
+          <name>METRICS_SUBJECT</name>
+        </field>
+        <field>
+          <id>METRICS_TYPE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_TYPE</name>
+        </field>
+        <field>
+          <id>METRICS_VALUE</id>
+          <enabled>Y</enabled>
+          <name>METRICS_VALUE</name>
+        </field>
+      </metrics-log-table>
+    </log>
+    <maxdate>
+      <connection />
+      <table />
+      <field />
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file />
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+    <created_user>-</created_user>
+    <created_date>2017/10/15 14:28:49.878</created_date>
+    <modified_user>-</modified_user>
+    <modified_date>2017/10/15 14:28:49.878</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+  </notepads>
+  <order>
+    <hop>
+      <from>Russia-2015-04-05</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Russia-2015-07-02</from>
+      <to>Sort rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Russia-2015-10-06</from>
+      <to>Sort rows 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Russia-2015-12-26</from>
+      <to>Sort rows 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Russia-2016-03-31</from>
+      <to>Sort rows 5</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Russia-2016-06-23</from>
+      <to>Sort rows 6</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Russia-2016-09-08</from>
+      <to>Sort rows 7</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Russia-2016-11-21</from>
+      <to>Sort rows 8</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Russia-2017-02-06</from>
+      <to>Sort rows 9</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Russia-2017-07-31</from>
+      <to>Sort rows 11</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Russia-2017-10-10</from>
+      <to>Sort rows 12</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 2</from>
+      <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 3</from>
+      <to>Select values 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 4</from>
+      <to>Select values 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 5</from>
+      <to>Select values 5</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 6</from>
+      <to>Select values 6</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 7</from>
+      <to>Select values 7</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 8</from>
+      <to>Select values 8</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 11</from>
+      <to>Select values 11</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 9</from>
+      <to>Select values 9</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 12</from>
+      <to>Select values 12</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Russia-2017-05-09</from>
+      <to>Sort rows 10</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 10</from>
+      <to>Select values 10</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2</from>
+      <to>Set field value</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 3</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join</from>
+      <to>Filter rows 2 5</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 4</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join</from>
+      <to>Filter rows 2 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 5</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join</from>
+      <to>Filter rows 2 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 6</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join</from>
+      <to>Filter rows 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 7</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join</from>
+      <to>Filter rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 8</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 9</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 12</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 11</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 10</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join</from>
+      <to>Filter rows 2 6</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join</from>
+      <to>Filter rows 2 7</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join</from>
+      <to>Filter rows 2 8</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join</from>
+      <to>Filter rows 2 9</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join</from>
+      <to>Filter rows 2 10</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join</from>
+      <to>Filter rows 2 11</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2 11</from>
+      <to>Set field value 11</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2 10</from>
+      <to>Set field value 10</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2 9</from>
+      <to>Set field value 9</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2 8</from>
+      <to>Set field value 8</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2 7</from>
+      <to>Set field value 7</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2 6</from>
+      <to>Set field value 6</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2 5</from>
+      <to>Set field value 5</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2 4</from>
+      <to>Set field value 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2 3</from>
+      <to>Set field value 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2 2</from>
+      <to>Set field value 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join</from>
+      <to>Game Not null</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set field value</from>
+      <to>Memory Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set field value 2</from>
+      <to>Memory Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set field value 3</from>
+      <to>Memory Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set field value 4</from>
+      <to>Memory Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Game Not null</from>
+      <to>Memory Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set field value 5</from>
+      <to>Memory Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set field value 6</from>
+      <to>Memory Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set field value 7</from>
+      <to>Memory Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set field value 8</from>
+      <to>Memory Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set field value 9</from>
+      <to>Memory Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set field value 10</from>
+      <to>Memory Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set field value 11</from>
+      <to>Memory Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Memory Group by</from>
+      <to>Microsoft Excel Writer</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Memory Group by</from>
+      <to>JSON Output</to>
+      <enabled>Y</enabled>
+    </hop>
+  </order>
+  <step>
+    <name>Filter rows 2</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Set field value</send_true_to>
+    <send_false_to />
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>Game</leftvalue>
+            <function>IS NULL</function>
+            <rightvalue />
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>Game_1</leftvalue>
+            <function>IS NOT NULL</function>
+            <rightvalue />
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>528</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 2 10</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Set field value 10</send_true_to>
+    <send_false_to />
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>Game</leftvalue>
+            <function>IS NULL</function>
+            <rightvalue />
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>Game_10</leftvalue>
+            <function>IS NOT NULL</function>
+            <rightvalue />
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>832</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 2 11</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Set field value 11</send_true_to>
+    <send_false_to />
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>Game</leftvalue>
+            <function>IS NULL</function>
+            <rightvalue />
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>Game_11</leftvalue>
+            <function>IS NOT NULL</function>
+            <rightvalue />
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>912</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 2 2</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Set field value 2</send_true_to>
+    <send_false_to />
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>Game</leftvalue>
+            <function>IS NULL</function>
+            <rightvalue />
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>Game_2</leftvalue>
+            <function>IS NOT NULL</function>
+            <rightvalue />
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>528</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 2 3</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Set field value 3</send_true_to>
+    <send_false_to />
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>Game</leftvalue>
+            <function>IS NULL</function>
+            <rightvalue />
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>Game_3</leftvalue>
+            <function>IS NOT NULL</function>
+            <rightvalue />
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>528</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 2 4</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Set field value 4</send_true_to>
+    <send_false_to />
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>Game</leftvalue>
+            <function>IS NULL</function>
+            <rightvalue />
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>Game_4</leftvalue>
+            <function>IS NOT NULL</function>
+            <rightvalue />
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 2 5</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Set field value 5</send_true_to>
+    <send_false_to />
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>Game</leftvalue>
+            <function>IS NULL</function>
+            <rightvalue />
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>Game_5</leftvalue>
+            <function>IS NOT NULL</function>
+            <rightvalue />
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 2 6</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Set field value 6</send_true_to>
+    <send_false_to />
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>Game</leftvalue>
+            <function>IS NULL</function>
+            <rightvalue />
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>Game_6</leftvalue>
+            <function>IS NOT NULL</function>
+            <rightvalue />
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 2 7</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Set field value 7</send_true_to>
+    <send_false_to />
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>Game</leftvalue>
+            <function>IS NULL</function>
+            <rightvalue />
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>Game_7</leftvalue>
+            <function>IS NOT NULL</function>
+            <rightvalue />
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>576</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 2 8</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Set field value 8</send_true_to>
+    <send_false_to />
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>Game</leftvalue>
+            <function>IS NULL</function>
+            <rightvalue />
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>Game_8</leftvalue>
+            <function>IS NOT NULL</function>
+            <rightvalue />
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>672</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 2 9</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Set field value 9</send_true_to>
+    <send_false_to />
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>Game</leftvalue>
+            <function>IS NULL</function>
+            <rightvalue />
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>Game_9</leftvalue>
+            <function>IS NOT NULL</function>
+            <rightvalue />
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>752</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Game Not null</name>
+    <type>FilterRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <send_true_to>Memory Group by</send_true_to>
+    <send_false_to />
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>Game</leftvalue>
+        <function>IS NOT NULL</function>
+        <rightvalue>Game</rightvalue>
+      </condition>
+    </compare>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>576</xloc>
+      <yloc>0</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Memory Group by</name>
+    <type>MemoryGroupBy</type>
+    <description />
+    <distribute>N</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <give_back_row>N</give_back_row>
+    <group>
+      <field>
+        <name>Game</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_1</name>
+      </field>
+      <field>
+        <name>Hours (total)_1</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_2</name>
+      </field>
+      <field>
+        <name>Hours (total)_2</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_3</name>
+      </field>
+      <field>
+        <name>Hours (total)_3</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_4</name>
+      </field>
+      <field>
+        <name>Hours (total)_4</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_5</name>
+      </field>
+      <field>
+        <name>Hours (total)_5</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_6</name>
+      </field>
+      <field>
+        <name>Hours (total)_6</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_7</name>
+      </field>
+      <field>
+        <name>Hours (total)_7</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_8</name>
+      </field>
+      <field>
+        <name>Hours (total)_8</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_9</name>
+      </field>
+      <field>
+        <name>Hours (total)_9</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_10</name>
+      </field>
+      <field>
+        <name>Hours (total)_10</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_11</name>
+      </field>
+      <field>
+        <name>Hours (total)_11</name>
+      </field>
+    </group>
+    <fields>
+      </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>864</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Microsoft Excel Writer</name>
+    <type>TypeExitExcelWriterStep</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <makeSheetActive>Y</makeSheetActive>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <startingCell>A2</startingCell>
+    <appendOmitHeader>N</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
+    <appendLines>N</appendLines>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>C:\Users\JoseLuis\Dropbox\aIST.UTL\5Ano1Semestre\Visualização de Informação\Projecto\Data\Countries Data\1 - United States\USA.xlsx</name>
+      <extention>xlsx</extention>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format />
+      <sheetname>Sheet1</sheetname>
+      <autosizecolums>N</autosizecolums>
+      <stream_data>N</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by />
+      <splitevery>0</splitevery>
+      <if_file_exists>new</if_file_exists>
+      <if_sheet_exists>new</if_sheet_exists>
+    </file>
+    <template>
+      <enabled>N</enabled>
+      <sheet_enabled>N</sheet_enabled>
+      <filename>template.xls</filename>
+      <sheetname />
+      <hidden>N</hidden>
+    </template>
+    <fields>
+      <field>
+        <name>Game</name>
+        <type>String</type>
+        <format />
+        <title>Game</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <title>Players (2Â weeks)</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <type>String</type>
+        <format />
+        <title>Hours (total)</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Players (2Â weeks)_1</name>
+        <type>String</type>
+        <format />
+        <title>Players (2Â weeks)_1</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Hours (total)_1</name>
+        <type>String</type>
+        <format />
+        <title>Hours (total)_1</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Players (2Â weeks)_2</name>
+        <type>String</type>
+        <format />
+        <title>Players (2Â weeks)_2</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Hours (total)_2</name>
+        <type>String</type>
+        <format />
+        <title>Hours (total)_2</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Players (2Â weeks)_3</name>
+        <type>String</type>
+        <format />
+        <title>Players (2Â weeks)_3</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Hours (total)_3</name>
+        <type>String</type>
+        <format />
+        <title>Hours (total)_3</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Players (2Â weeks)_4</name>
+        <type>String</type>
+        <format />
+        <title>Players (2Â weeks)_4</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Hours (total)_4</name>
+        <type>String</type>
+        <format />
+        <title>Hours (total)_4</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Players (2Â weeks)_5</name>
+        <type>String</type>
+        <format />
+        <title>Players (2Â weeks)_5</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Hours (total)_5</name>
+        <type>String</type>
+        <format />
+        <title>Hours (total)_5</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Players (2Â weeks)_6</name>
+        <type>String</type>
+        <format />
+        <title>Players (2Â weeks)_6</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Hours (total)_6</name>
+        <type>String</type>
+        <format />
+        <title>Hours (total)_6</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Players (2Â weeks)_7</name>
+        <type>String</type>
+        <format />
+        <title>Players (2Â weeks)_7</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Hours (total)_7</name>
+        <type>String</type>
+        <format />
+        <title>Hours (total)_7</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Players (2Â weeks)_8</name>
+        <type>String</type>
+        <format />
+        <title>Players (2Â weeks)_8</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Hours (total)_8</name>
+        <type>String</type>
+        <format />
+        <title>Hours (total)_8</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Players (2Â weeks)_9</name>
+        <type>String</type>
+        <format />
+        <title>Players (2Â weeks)_9</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Hours (total)_9</name>
+        <type>String</type>
+        <format />
+        <title>Hours (total)_9</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Players (2Â weeks)_10</name>
+        <type>String</type>
+        <format />
+        <title>Players (2Â weeks)_10</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Hours (total)_10</name>
+        <type>String</type>
+        <format />
+        <title>Hours (total)_10</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Players (2Â weeks)_11</name>
+        <type>String</type>
+        <format />
+        <title>Players (2Â weeks)_11</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+      <field>
+        <name>Hours (total)_11</name>
+        <type>String</type>
+        <format />
+        <title>Hours (total)_11</title>
+        <titleStyleCell />
+        <styleCell />
+        <commentField />
+        <commentAuthorField />
+        <formula>N</formula>
+        <hyperlinkField />
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Multiway Merge Join</name>
+    <type>MultiwayMergeJoin</type>
+    <description />
+    <distribute>N</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <join_type>FULL OUTER</join_type>
+    <step0>Select values</step0>
+    <step1>Select values 2</step1>
+    <step2>Select values 3</step2>
+    <step3>Select values 4</step3>
+    <step4>Select values 5</step4>
+    <step5>Select values 6</step5>
+    <step6>Select values 7</step6>
+    <step7>Select values 8</step7>
+    <step8>Select values 9</step8>
+    <step9>Select values 10</step9>
+    <step10>Select values 11</step10>
+    <step11>Select values 12</step11>
+    <number_input>12</number_input>
+    <keys>
+      <key>Game</key>
+      <key>Game</key>
+      <key>Game</key>
+      <key>Game</key>
+      <key>Game</key>
+      <key>Game</key>
+      <key>Game</key>
+      <key>Game</key>
+      <key>Game</key>
+      <key>Game</key>
+      <key>Game</key>
+      <key>Game</key>
+    </keys>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>528</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Russia-2015-04-05</name>
+    <type>CsvInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <filename>C:\Users\JoseLuis\Dropbox\aIST.UTL\5Ano1Semestre\Visualização de Informação\Projecto\Data\Countries Data\1 - United States\United States - SteamSpy - 2015-04-07.csv</filename>
+    <filename_field />
+    <rownum_field />
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <encoding />
+    <fields>
+      <field>
+        <name>#</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Game</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>36</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>5</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Share</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>8</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Russia-2015-07-02</name>
+    <type>CsvInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <filename>C:\Users\JoseLuis\Dropbox\aIST.UTL\5Ano1Semestre\Visualização de Informação\Projecto\Data\Countries Data\1 - United States\United States - SteamSpy - 2015-07-01.csv</filename>
+    <filename_field />
+    <rownum_field />
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <encoding />
+    <fields>
+      <field>
+        <name>#</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Game</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>36</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>5</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Share</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Russia-2015-10-06</name>
+    <type>CsvInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <filename>C:\Users\JoseLuis\Dropbox\aIST.UTL\5Ano1Semestre\Visualização de Informação\Projecto\Data\Countries Data\1 - United States\United States - SteamSpy - 2015-10-11.csv</filename>
+    <filename_field />
+    <rownum_field />
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <encoding />
+    <fields>
+      <field>
+        <name>#</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Game</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>36</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>5</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Share</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Russia-2015-12-26</name>
+    <type>CsvInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <filename>C:\Users\JoseLuis\Dropbox\aIST.UTL\5Ano1Semestre\Visualização de Informação\Projecto\Data\Countries Data\1 - United States\United States - SteamSpy - 2015-12-19.csv</filename>
+    <filename_field />
+    <rownum_field />
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <encoding />
+    <fields>
+      <field>
+        <name>#</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Game</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>32</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>5</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Share</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Russia-2016-03-31</name>
+    <type>CsvInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <filename>C:\Users\JoseLuis\Dropbox\aIST.UTL\5Ano1Semestre\Visualização de Informação\Projecto\Data\Countries Data\1 - United States\United States - SteamSpy - 2016-04-03.csv</filename>
+    <filename_field />
+    <rownum_field />
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <encoding />
+    <fields>
+      <field>
+        <name>#</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Game</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>34</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>5</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Share</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Russia-2016-06-23</name>
+    <type>CsvInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <filename>C:\Users\JoseLuis\Dropbox\aIST.UTL\5Ano1Semestre\Visualização de Informação\Projecto\Data\Countries Data\1 - United States\United States - SteamSpy - 2016-07-29.csv</filename>
+    <filename_field />
+    <rownum_field />
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <encoding />
+    <fields>
+      <field>
+        <name>#</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Game</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>32</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>5</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Share</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Russia-2016-09-08</name>
+    <type>CsvInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <filename>C:\Users\JoseLuis\Dropbox\aIST.UTL\5Ano1Semestre\Visualização de Informação\Projecto\Data\Countries Data\1 - United States\United States - SteamSpy - 2016-09-06.csv</filename>
+    <filename_field />
+    <rownum_field />
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <encoding />
+    <fields>
+      <field>
+        <name>#</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Game</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>36</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>5</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Share</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Russia-2016-11-21</name>
+    <type>CsvInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <filename>C:\Users\JoseLuis\Dropbox\aIST.UTL\5Ano1Semestre\Visualização de Informação\Projecto\Data\Countries Data\1 - United States\United States - SteamSpy - 2016-11-25.csv</filename>
+    <filename_field />
+    <rownum_field />
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <encoding />
+    <fields>
+      <field>
+        <name>#</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Game</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>32</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>5</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>5</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Share</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>8</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>688</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Russia-2017-02-06</name>
+    <type>CsvInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <filename>C:\Users\JoseLuis\Dropbox\aIST.UTL\5Ano1Semestre\Visualização de Informação\Projecto\Data\Countries Data\1 - United States\United States - SteamSpy - 2017-02-06.csv</filename>
+    <filename_field />
+    <rownum_field />
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <encoding />
+    <fields>
+      <field>
+        <name>#</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Game</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>53</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>5</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Share</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>768</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Russia-2017-05-09</name>
+    <type>CsvInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <filename>C:\Users\JoseLuis\Dropbox\aIST.UTL\5Ano1Semestre\Visualização de Informação\Projecto\Data\Countries Data\1 - United States\United States - SteamSpy - 2017-05-09.csv</filename>
+    <filename_field />
+    <rownum_field />
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <encoding />
+    <fields>
+      <field>
+        <name>#</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Game</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>43</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>5</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>5</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Share</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>8</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>848</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Russia-2017-07-31</name>
+    <type>CsvInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <filename>C:\Users\JoseLuis\Dropbox\aIST.UTL\5Ano1Semestre\Visualização de Informação\Projecto\Data\Countries Data\1 - United States\United States - SteamSpy - 2017-07-31.csv</filename>
+    <filename_field />
+    <rownum_field />
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <encoding />
+    <fields>
+      <field>
+        <name>#</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Game</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>43</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>5</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Share</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>8</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>928</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Russia-2017-10-10</name>
+    <type>CsvInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <filename>C:\Users\JoseLuis\Dropbox\aIST.UTL\5Ano1Semestre\Visualização de Informação\Projecto\Data\Countries Data\1 - United States\United States - SteamSpy - 2017-10-10.csv</filename>
+    <filename_field />
+    <rownum_field />
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <encoding />
+    <fields>
+      <field>
+        <name>#</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Game</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>43</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (2Â weeks)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>5</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Players (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Share</name>
+        <type>String</type>
+        <format />
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>8</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>992</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 10</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>848</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 11</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>928</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 12</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>992</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 3</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 4</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 5</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 6</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 7</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 8</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>688</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 9</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>768</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set field value</name>
+    <type>SetValueField</type>
+    <description />
+    <distribute>N</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+        <replaceby>Game_1</replaceby>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set field value 10</name>
+    <type>SetValueField</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+        <replaceby>Game_10</replaceby>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>832</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set field value 11</name>
+    <type>SetValueField</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+        <replaceby>Game_11</replaceby>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>912</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set field value 2</name>
+    <type>SetValueField</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+        <replaceby>Game_2</replaceby>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set field value 3</name>
+    <type>SetValueField</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+        <replaceby>Game_3</replaceby>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set field value 4</name>
+    <type>SetValueField</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+        <replaceby>Game_4</replaceby>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set field value 5</name>
+    <type>SetValueField</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+        <replaceby>Game_5</replaceby>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set field value 6</name>
+    <type>SetValueField</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+        <replaceby>Game_6</replaceby>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set field value 7</name>
+    <type>SetValueField</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+        <replaceby>Game_7</replaceby>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>576</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set field value 8</name>
+    <type>SetValueField</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+        <replaceby>Game_8</replaceby>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>672</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set field value 9</name>
+    <type>SetValueField</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>Game</name>
+        <replaceby>Game_9</replaceby>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>752</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Game</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 10</name>
+    <type>SortRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Game</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>848</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 11</name>
+    <type>SortRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Game</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>928</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 12</name>
+    <type>SortRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Game</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>992</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 2</name>
+    <type>SortRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Game</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Players (total)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 3</name>
+    <type>SortRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Game</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 4</name>
+    <type>SortRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Game</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 5</name>
+    <type>SortRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Game</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 6</name>
+    <type>SortRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Game</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 7</name>
+    <type>SortRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Game</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 8</name>
+    <type>SortRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Game</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>688</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 9</name>
+    <type>SortRows</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory />
+    <compress>N</compress>
+    <compress_variable />
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Game</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>768</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>JSON Output</name>
+    <type>JsonOutput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <outputValue>outputValue</outputValue>
+    <jsonBloc>data</jsonBloc>
+    <nrRowsInBloc>500</nrRowsInBloc>
+    <operation_type>writetofile</operation_type>
+    <compatibility_mode>N</compatibility_mode>
+    <encoding>UTF-8</encoding>
+    <addtoresult>N</addtoresult>
+    <file>
+      <name>C:\Users\JoseLuis\Dropbox\aIST.UTL\5Ano1Semestre\Visualização de Informação\Projecto\Data\Countries Data\1 - United States\USA-JSON</name>
+      <extention>js</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <create_parent_folder>N</create_parent_folder>
+      <DoNotOpenNewFileInit>N</DoNotOpenNewFileInit>
+      <servlet_output>N</servlet_output>
+    </file>
+    <fields>
+      <field>
+        <name>Game</name>
+        <element>Game</element>
+      </field>
+      <field>
+        <name>Players (2Â weeks)</name>
+        <element>Players (2Â weeks)</element>
+      </field>
+      <field>
+        <name>Hours (total)</name>
+        <element>Hours (total)</element>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_1</name>
+        <element>Players (2Â weeks)_1</element>
+      </field>
+      <field>
+        <name>Hours (total)_1</name>
+        <element>Hours (total)_1</element>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_2</name>
+        <element>Players (2Â weeks)_2</element>
+      </field>
+      <field>
+        <name>Hours (total)_2</name>
+        <element>Hours (total)_2</element>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_3</name>
+        <element>Players (2Â weeks)_3</element>
+      </field>
+      <field>
+        <name>Hours (total)_3</name>
+        <element>Hours (total)_3</element>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_4</name>
+        <element>Players (2Â weeks)_4</element>
+      </field>
+      <field>
+        <name>Hours (total)_4</name>
+        <element>Hours (total)_4</element>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_5</name>
+        <element>Players (2Â weeks)_5</element>
+      </field>
+      <field>
+        <name>Hours (total)_5</name>
+        <element>Hours (total)_5</element>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_6</name>
+        <element>Players (2Â weeks)_6</element>
+      </field>
+      <field>
+        <name>Hours (total)_6</name>
+        <element>Hours (total)_6</element>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_7</name>
+        <element>Players (2Â weeks)_7</element>
+      </field>
+      <field>
+        <name>Hours (total)_7</name>
+        <element>Hours (total)_7</element>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_8</name>
+        <element>Players (2Â weeks)_8</element>
+      </field>
+      <field>
+        <name>Hours (total)_8</name>
+        <element>Hours (total)_8</element>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_9</name>
+        <element>Players (2Â weeks)_9</element>
+      </field>
+      <field>
+        <name>Hours (total)_9</name>
+        <element>Hours (total)_9</element>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_10</name>
+        <element>Players (2Â weeks)_10</element>
+      </field>
+      <field>
+        <name>Hours (total)_10</name>
+        <element>Hours (total)_10</element>
+      </field>
+      <field>
+        <name>Players (2Â weeks)_11</name>
+        <element>Players (2Â weeks)_11</element>
+      </field>
+      <field>
+        <name>Hours (total)_11</name>
+        <element>Hours (total)_11</element>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
+      <yloc>528</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step_error_handling>
+  </step_error_handling>
+  <slave-step-copy-partition-distribution>
+  </slave-step-copy-partition-distribution>
+  <slave_transformation>N</slave_transformation>
+</transformation>
