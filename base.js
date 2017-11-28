@@ -1,7 +1,7 @@
 var dataset;
 var dataset5;
 var time = 0;
-var time_samples = [];
+var time_samples = ["April 2015", "July 2015","October 2015","December 2015" ,"February 2016","May 2016", "September 2016", "November 2016", "January 2017","March 2017", "June 2017", "October 2017"];
 var country = [];
 
 //scatterPlot variables
@@ -137,12 +137,34 @@ function axisCreator(){
     gY = svg.append("g")
    	.attr("transform","translate(30,0)")  
 	.attr("class","y axis")
-	.call(yaxis);
+	.call(yaxis)
+    .append("text")
+     .attr("class", "label")
+     .attr("transform", "rotate(-90)")
+     .attr("y", 0)
+     .attr("dy", ".75em")
+     .attr("id","yID")
+     .text(function(d) {
+        return "Average Price (€)";
+      })
+      .style("stroke","black")
+      .attr("dy", "1em");
+
 
 
     gX = svg.append("g")
    	.attr("transform","translate(0," + (h-padding) + ")")
-	.call(xaxis);
+	.call(xaxis)
+    .append("text")
+     .attr("class", "label")
+     .attr("x", w-padding)
+     .attr("y", 0)
+     .text(function(d) {
+        return "# of Games";
+      })
+      .style("stroke","black")
+      .attr("dy", "1em");
+
 }
 
 function dropdown5Select(tag){
