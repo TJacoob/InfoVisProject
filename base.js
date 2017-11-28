@@ -11,6 +11,7 @@ var indieArray = {};
 var rpgArray = {};
 var strategyArray = {};
 var currentTag;
+var colorv5 ;
 
 
 //ScatterPlot Files
@@ -247,22 +248,22 @@ function dropdown5Select(tag){
         case 0:  
             name = "Action";
             dataset = actionArray;
-            color = "red";
+            colorv5 = "red";
         break;
         case 1:
             name = "Indie";
             dataset = indieArray;
-            color = "blue";
+            colorv5 = "blue";
         break;
         case 2:
             name = "RPG";
             dataset = rpgArray;
-            color = "orange";
+            colorv5 = "orange";
         break;
         case 3:
             name = "Strategy";
             dataset = strategyArray;
-            color = "green";
+            colorv5 = "green";
         break;
         default:
             alert("Html page changed!!");
@@ -315,7 +316,7 @@ function scatterPlot (tag) {
         .data(dataset)
         .enter().append("circle")
         .attr("r",r)
-        .attr("fill",color)
+        .attr("fill",colorv5)
         .attr("class", tag)
         .attr("cx",function(d, i) {
             return  xscale(d.cx);
@@ -344,7 +345,7 @@ function scatterPlot (tag) {
 }
 
 function changeCircleColor(tag){
-    console.log("colour = "+color);
+    console.log("colour = "+colorv5);
     console.log("Tag = "+tag);
     var elements = document.getElementsByClassName(tag);
     if(elements!=null) //always true Except for an error
@@ -352,7 +353,7 @@ function changeCircleColor(tag){
             if(i==time)
                 elements[i].setAttribute("fill","black");
             else
-                elements[i].setAttribute("fill",color);
+                elements[i].setAttribute("fill",colorv5);
         }
 }
 
