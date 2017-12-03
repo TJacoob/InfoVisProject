@@ -4,6 +4,7 @@ var download_dataset;
 var time = 0;
 var time_samples = ["April 2015", "July 2015","October 2015","December 2015" ,"February 2016","May 2016", "September 2016", "November 2016", "January 2017","March 2017", "June 2017", "October 2017"];
 var country = [];
+var countryColor = {"US":"blue", "RU":"white","CN":"yellow","BR":"olive","DE":"black","FR":"teal","GB":"red","CA":"maroon","PL":"purple","PT":"green"};
 
 //scatterPlot variables
 var actionArray = {};
@@ -107,32 +108,50 @@ function worldmap()
 			data = download_dataset.find(o => o.country === c).value;
 			$("#"+c,svgRoot).css("opacity",(data/100)+.5);
 			$("#"+c,svgRoot).children()[0].innerHTML += ": "+data+" PB";
+            // New feature -> color border
+            let col = countryColor[c];            
+            $("#"+c).css("border","2px solid "+col);
+            $("#"+c,svgRoot).css("stroke",col);
+            $("#"+c,svgRoot).css("stroke-width","2px");
 		});
 	})
 }
 
 function highlightCountry(c){
-	$(document).ready(function(){
-		var a = document.getElementById("worldmap");
 
-		var svgDoc = a.contentDocument; //get the inner DOM of alpha.svg
-		var svgRoot  = svgDoc.documentElement;
+    if ( country.indexOf(c) == -1 ) // Se o país não estiver selecionado, autoriza a ação
+    {
+        $(document).ready(function(){
+            var a = document.getElementById("worldmap");
 
-		$("#"+c,svgRoot).css("stroke","#3f3f3f");
-		$("#"+c,svgRoot).css("stroke-width","1.5px");
-	})	
+            var svgDoc = a.contentDocument; //get the inner DOM of alpha.svg
+            var svgRoot  = svgDoc.documentElement;
+
+            let col = countryColor[c];
+            $("#"+c).css("border","2px solid "+col);
+            $("#"+c,svgRoot).css("stroke",col);
+            $("#"+c,svgRoot).css("stroke-width","2.5px");
+        })  
+    }
+
+	
 }
 
 function unlightCountry(c){
-	$(document).ready(function(){
-		var a = document.getElementById("worldmap");
 
-		var svgDoc = a.contentDocument; //get the inner DOM of alpha.svg
-		var svgRoot  = svgDoc.documentElement;
+    if ( country.indexOf(c) == -1 ) // Se o país não estiver selecionado, autoriza a ação
+    {
+        $(document).ready(function(){
+    		var a = document.getElementById("worldmap");
 
-		$("#"+c,svgRoot).css("stroke","white");
-		$("#"+c,svgRoot).css("stroke-width","0.5");
-	})	
+    		var svgDoc = a.contentDocument; //get the inner DOM of alpha.svg
+    		var svgRoot  = svgDoc.documentElement;
+
+            $("#"+c).css("border","0px solid white");
+    		$("#"+c,svgRoot).css("stroke","white");
+    		$("#"+c,svgRoot).css("stroke-width","0.5");
+    	})
+    }
 }
  
 function startup(){
