@@ -167,3 +167,11 @@ rect {
   top: 100%;
   left: 0;
 }
+
+/* ZOOM */
+
+.zoom {
+  cursor: move;
+  fill: none;
+  pointer-events: all;
+}

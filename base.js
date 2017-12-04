@@ -14,6 +14,17 @@ var strategyArray = {};
 var currentTag;
 var colorv5 ;
 
+//zoom variables
+var xaxis;
+var yaxis;
+var xscale;
+var hscale;
+var view;
+var svg;
+var svg2;
+var margin = { top: 20, right: 20, bottom: 30, left: 30 };
+var brush;
+var scatter;
 
 //ScatterPlot Files
 d3.json("Data/Game Tag Data/GameTagDate.json", function (data) {
@@ -191,34 +202,30 @@ function startup(){
   	worldmap();
 }
 
+
 //ScatterPlot - VIS5 Function
 function axisCreator(){
 
     dataset = strategyArray;
     w = $("#vis5").width();
 	h = $("#vis5").height();
-
-    var svg = d3.select("#vis5")
-                .append("svg")
-                .attr("width",w)
-                .attr("height",h)
 		
     var padding = 30;
     var bar_w = 20;
-    var r = 2;
+    var r = 10;
 
-    var hscale = d3.scaleLinear()
+    hscale = d3.scaleLinear()
                          .domain([14,0])
                          .range([padding,h-padding]);
 			 
-    var xscale = d3.scaleLinear()
+    xscale = d3.scaleLinear()
                        .domain([0,9000])
                        .range([padding,w-padding]);
 
-    var yaxis = d3.axisLeft()
+    yaxis = d3.axisLeft()
                   .scale(hscale);                  
 
-    var xaxis = d3.axisBottom()
+    xaxis = d3.axisBottom()
                 .scale(xscale)
                 .ticks(dataset.length/2);
               
@@ -226,10 +233,18 @@ function axisCreator(){
         .domain([d3.min(11, function(d) { return d[d.length-1];}),
          d3.max(11, function(d) { return d[d.length-1];})])
         .range(["red", "yellow"]);
-              
+
+    svg = d3.select("#vis5")
+        .append("svg")
+        .attr("width",w)
+        .attr("height",h)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
     gY = svg.append("g")
    	.attr("transform","translate(30,0)")  
 	.attr("class","y axis")
+    .attr("id","axis--y")
 	.call(yaxis)
     .append("text")
      .attr("class", "label")
@@ -237,7 +252,6 @@ function axisCreator(){
      .attr("style","font-size: 9px; font-weight: lighter; width: 100%;    line-height: 1;    stroke: black;    font-family: 'Raleway', sans-serif !important;")
      .attr("y", 0)
      .attr("dy", ".75em")
-     .attr("id","yID")
      .text(function(d) {
         return "Average Price (€)";
       })
@@ -247,6 +261,7 @@ function axisCreator(){
     gX = svg.append("g")
    	.attr("transform","translate(0," + (h-padding) + ")")
 	.call(xaxis)
+    .attr("id","axis--x")
     .append("text")
      .attr("class", "label")
      .attr("style","font-size: 9px; font-weight: lighter; width: 100%;    line-height: 1;    stroke: black;    font-family: 'Raleway', sans-serif !important;")
@@ -257,6 +272,9 @@ function axisCreator(){
       })
       .style("stroke","black")
       .attr("dy", "1em");
+
+
+ brush = d3.brush().extent([[0, 0], [w, h]]).on("end", brushended), idleTimeout=null,  idleDelay = 350;
 
 }
 
@@ -317,59 +335,40 @@ function scatterPlot (tag) {
     var svg = d3.select("#vis5")
                 .append("svg")
                 .attr("width",w)
-                .attr("height",h);
-    
+                .attr("height",h)
+                .call(d3.zoom().on("zoom", function(){
+                    console.log("Hi yall!");
+                    svg.attr("transform", d3.event.transform);
+                }));
+
     var padding = w / 20;
     var bar_w = h / 20;
-    var r = 2;
+    var r = 6;
 
     var hscale = d3.scaleLinear()
-                         .domain([14,0])
-                         .range([padding,h-padding]);
-             
+                     .domain([14,0])
+                     .range([padding,h-padding]);
+         
     var xscale = d3.scaleLinear()
-                       .domain([0,9000])
-                       .range([padding,w-padding]);
+                   .domain([0,9000])
+                   .range([padding,w-padding]);
 
 
+    scatter = svg.append("g")
+            .attr("id","scatterplot");
 
-  var tip = d3.tip()
+    var tip = d3.tip()
       .attr("class", "d3-tip")
       .offset([-10, 0])
       .html(function(d) {
         return "Avg price:" + d.cy + "<br>" + "Number of Games: " + d.cx;
       });
-
-      svg.call(tip);
     
-   /*svg.selectAll("circle")
-        .data(dataset)
-        .enter().append("circle")
-        .attr("r",r)
-        .attr("fill",colorv5)
-        .attr("class", tag)
-        .attr("cx",function(d, i) {
-            return  xscale(d.cx);
-          })
-        .attr("cy",function(d) {
-               return hscale(d.cy);
-            })
-        .on("mouseover", function(d){
-            // Put tooltip in the right position, change the text and make it visible
-            tooltip = document.getElementById("tooltipv5");
-            tooltip.setAttribute("x",xscale(d.cx));
-            tooltip.setAttribute("y",hscale(d.cy));
-            $(document).ready(function(){
-                $("#tooltipv5").text("Avg price: "+d.cy+"\nNumber Games = "+d.cx);
-            });
-            tooltip.setAttribute("visibility","visible");
-            //scatterMouseOver(d);
-        })
-        .on("mouseout", function(d){
-            tooltip = document.getElementById("tooltipv5");
-            tooltip.setAttribute("visibility","hidden");
-        });*/
-        svg.selectAll("circle")
+
+    scatter.call(tip);
+
+
+    scatter.selectAll("circle")
         .data(dataset)
         .enter().append("circle")
         .attr("r",r)
@@ -383,9 +382,12 @@ function scatterPlot (tag) {
             })
         .on("mouseover", tip.show)
         .on("mouseout", tip.hide);
+
+    scatter.append("g")
+        .attr("class", "brush")
+        .call(brush);
     
     changeCircleColor(tag);
-       //
 }
 
 function changeCircleColor(tag){
@@ -401,18 +403,40 @@ function changeCircleColor(tag){
         }
 }
 
-function scatterMouseOver(object){
-    
-    var avgPrice = object.cy;
-    var totNumber = object.cx;
-    var month = time_samples[object.time];
-    console.log("all good: "+object);
-    
+function brushended() {
+
+    var s = d3.event.selection;
+    var x = xscale;
+    var y = hscale;
+    if (!s) {
+        if (!idleTimeout) return idleTimeout = setTimeout(idled, idleDelay);
+        x.domain(d3.extent(dataset, function (d) { return d.cx; })).nice();
+        y.domain(d3.extent(dataset, function (d) { return d.cy; })).nice();
+    } else {
+        
+        x.domain([s[0][0], s[1][0]].map(x.invert, x));
+        y.domain([s[1][1], s[0][1]].map(y.invert, y));
+        scatter.select(".brush").call(brush.move, null);
+    }
+    zoom();
 }
 
-function HideTooltip(evt){
-    ttooltip.setAttribute("visibility","hidden");
+function idled() {
+    idleTimeout = null;
 }
+
+function zoom() {
+
+    var t = scatter.transition().duration(750);
+    svg.select("#axis--x").transition(t).call(xaxis);
+    svg.select("#axis--y").transition(t).call(yaxis);
+    scatter.selectAll("circle").transition(t)
+    .attr("cx", function (d) { return xscale(d.cx); })
+    .attr("cy", function (d) { return hscale(d.cy); });
+}  
+    
+
+
 
 
 /*
