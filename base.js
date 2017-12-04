@@ -234,15 +234,14 @@ function axisCreator(){
     .append("text")
      .attr("class", "label")
      .attr("transform", "rotate(-90)")
+     .attr("style","font-size: 9px; font-weight: lighter; width: 100%;    line-height: 1;    stroke: black;    font-family: 'Raleway', sans-serif !important;")
      .attr("y", 0)
      .attr("dy", ".75em")
      .attr("id","yID")
      .text(function(d) {
         return "Average Price (€)";
       })
-      .style("stroke","black")
       .attr("dy", "1em");
-
 
 
     gX = svg.append("g")
@@ -250,6 +249,7 @@ function axisCreator(){
 	.call(xaxis)
     .append("text")
      .attr("class", "label")
+     .attr("style","font-size: 9px; font-weight: lighter; width: 100%;    line-height: 1;    stroke: black;    font-family: 'Raleway', sans-serif !important;")
      .attr("x", w-padding)
      .attr("y", 0)
      .text(function(d) {
@@ -330,8 +330,19 @@ function scatterPlot (tag) {
     var xscale = d3.scaleLinear()
                        .domain([0,9000])
                        .range([padding,w-padding]);
+
+
+
+  var tip = d3.tip()
+      .attr("class", "d3-tip")
+      .offset([-10, 0])
+      .html(function(d) {
+        return "Avg price:" + d.cy + "<br>" + "Number of Games: " + d.cx;
+      });
+
+      svg.call(tip);
     
-   svg.selectAll("circle")
+   /*svg.selectAll("circle")
         .data(dataset)
         .enter().append("circle")
         .attr("r",r)
@@ -357,7 +368,21 @@ function scatterPlot (tag) {
         .on("mouseout", function(d){
             tooltip = document.getElementById("tooltipv5");
             tooltip.setAttribute("visibility","hidden");
-        });
+        });*/
+        svg.selectAll("circle")
+        .data(dataset)
+        .enter().append("circle")
+        .attr("r",r)
+        .attr("fill",colorv5)
+        .attr("class", tag)
+        .attr("cx",function(d, i) {
+            return  xscale(d.cx);
+          })
+        .attr("cy",function(d) {
+               return hscale(d.cy);
+            })
+        .on("mouseover", tip.show)
+        .on("mouseout", tip.hide);
     
     changeCircleColor(tag);
        //
