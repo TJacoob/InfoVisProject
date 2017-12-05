@@ -146,6 +146,7 @@ rect {
   color: #fff;
   border-radius: 2px;
   font-family: 'Raleway', sans-serif !important;
+  position: absolute;
 }
 
 /* Creates a small triangle extender for the tooltip */
@@ -166,7 +167,20 @@ rect {
   margin: -1px 0 0 0;
   top: 100%;
   left: 0;
+  position: absolute;
 }
+
+
+#tooltip {
+  background-color: rgba(187, 187, 187, 0.7);
+  border-radius: 5px;
+  height: 18px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+}
+
 
 /* ZOOM */
 
