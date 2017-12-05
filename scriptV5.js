@@ -133,7 +133,7 @@ function zoomFunction(){
   // create new scale ojects based on event
   var new_xScale = d3.event.transform.rescaleX(xAxisScale)
   var new_yScale = d3.event.transform.rescaleY(yAxisScale)
-  console.log(d3.event.transform)
+  //console.log(d3.event.transform)
 
   // update axes
   gX.call(xAxis.scale(new_xScale));
@@ -145,7 +145,6 @@ function zoomFunction(){
 
 function startupVi5(){
   
-  console.log("Hi");
   d3.json("Data/Game Tag Data/actionCoordinates.json", function (data) {
       actionArray = data;
       loadingVis5(0);
@@ -168,7 +167,6 @@ function startupVi5(){
 
 //loading all data! 
 function loadingVis5(id){
-  console.log("LoadingVis5("+id+")");
   switch(id){
     case 0:
       actionCheck = true;
@@ -251,7 +249,6 @@ function genAxis(){
 
 
 function clearDots(tag){
-    console.log("Tag = "+tag);
     for(var z=0; z<4;z++){
       if(z!=tag){
         var elements = document.getElementsByClassName(z);
@@ -265,7 +262,6 @@ function clearDots(tag){
 }
 
 function changeCircleColor(tag){
-    console.log("Tag = "+tag);
     var elements = document.getElementsByClassName(tag);
     if(elements!=null) //always true Except for an error
         for(var i=0; i<elements.length; i++) {
@@ -280,7 +276,6 @@ function changeCircleColor(tag){
 
 function dropdown5Select(tag){
   currentTag = tag;
-  console.log("currentTag ="+currentTag);
   var name ="";
   switch(tag){
       case 0:  
@@ -309,7 +304,6 @@ function dropdown5Select(tag){
     });
     // -- //
     clearDots(currentTag);    
-    console.log(dataset);
     scatterplot(dataset);
             
 }
