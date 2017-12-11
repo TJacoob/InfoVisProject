@@ -129,7 +129,7 @@ rect {
 .axisText {
 	font-size: 10px;
 	width: 100%;
-	line-height: 1;
+	line-height: 0.5;
 	stroke: black;
 	font-family: 'Raleway', sans-serif !important;
 	padding: 12px;

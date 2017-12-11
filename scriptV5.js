@@ -12,6 +12,7 @@ var yAxisScale;
 var gX;
 var gY;
 var view;
+var originalRadius = 7;
 
 var circles;
 var xAxis;
@@ -37,14 +38,14 @@ function scatterplot(dataset){
   var svgWidth = 800;
   var svgHeight = 300;
 
-  var r = 7;
+  
   var margin = {top: 30, right: 40, bottom: 50, left: 60};
 
   var width = svgWidth - margin.left - margin.right;
   var height = svgHeight - margin.top - margin.bottom;
 
+  r = originalRadius;
   /*
-
   var svgWidth = 800;
   var svgHeight = 300;
   var margin = {top: 30, right: 40, bottom: 50, left: 60};
@@ -99,9 +100,20 @@ function scatterplot(dataset){
     .attr("height", height)
     .call(zoom)
 
+   //limits the circles so that they're not out of bounds
+   var clip = innerSpace.append("defs").append("svg:clipPath")
+        .attr("id", "clip")
+        .append("svg:rect")
+        .attr("id", "clip-rect")
+        .attr("x", "0")
+        .attr("y", "0")
+        .attr('width', width)
+        .attr('height', height);
 
-  // append some dummy data
-  circles = innerSpace.selectAll("circles")
+
+  // append the selected data
+  circles = innerSpace.append('g').attr("clip-path", "url(#clip)")
+      .selectAll("circles")
       .data(dataset)
       .enter()
       .append("circle")
@@ -141,6 +153,7 @@ function zoomFunction(){
 
   // update circle
   circles.attr("transform", d3.event.transform)
+  circles.attr("r", originalRadius/d3.event.transform.k);
 };
 
 function startupVi5(){
@@ -193,7 +206,7 @@ function genAxis(){
 
   var svgWidth = $("#vis5").width();
   var svgHeight = $("#vis5").height();
-  var margin = {top: 30, right: 40, bottom: 50, left: 60};
+  var margin = {top: 30, right: 40, bottom: 50, left: 40};
 
   var width = svgWidth - margin.left - margin.right;
   var height = svgHeight - margin.top - margin.bottom;
@@ -241,6 +254,14 @@ function genAxis(){
         .style("stroke","black")
         .text("Number of Games");*/
 
+
+  innerSpace.append("text")   
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 10) + ")")
+      .style("text-anchor", "middle")
+      .text("Number of Games");
+
   gY = innerSpace.append("g")
       .attr("class", "axis axis--y")
       .call(yAxis);/*
@@ -251,6 +272,15 @@ function genAxis(){
         .attr("dy","0.75em")
         .style("stroke","black")
         .text("Average Price ($)");*/
+
+
+    innerSpace.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Price ($)");  
 
         //tooltip
   tip = d3.tip()
