@@ -101,7 +101,7 @@ function worldmap()
                 $("#"+c,svgRoot).css("stroke-width","2px");
     		});
         else{
-            alert("No data file");//Remove alert and Put all countries without colour, so we know that they have no data.
+            console.log("No data file");//Remove alert and Put all countries without colour, so we know that they have no data.
         }
 	})
 }

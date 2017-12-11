@@ -107,7 +107,7 @@ function scatterplot(dataset){
       .append("circle")
       .attr("class",currentTag)
       .attr("id","circles")
-      .attr("fill","blue")
+      .attr("fill","#5DB0B8")
       .attr("cx", function(d) { return xAxisScale(d.cx); })
       .attr("cy", function(d) { return yAxisScale(d.cy); })
       .attr('r', r)
@@ -232,11 +232,25 @@ function genAxis(){
   gX = innerSpace.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+      .call(xAxis);/*
+      .append("text")
+        .attr("class","axisText")
+        .attr("x",width)
+        .attr("y",0)
+        .attr("dy","1em")
+        .style("stroke","black")
+        .text("Number of Games");*/
 
   gY = innerSpace.append("g")
       .attr("class", "axis axis--y")
-      .call(yAxis);
+      .call(yAxis);/*
+      .append("text")
+        .attr("class","axisText")
+        .attr("transform","rotate (-90)")
+        .attr("y",0)
+        .attr("dy","0.75em")
+        .style("stroke","black")
+        .text("Average Price ($)");*/
 
         //tooltip
   tip = d3.tip()
@@ -268,7 +282,7 @@ function changeCircleColor(tag){
             if(i==time)
                 elements[i].setAttribute("fill","black");
             else
-                elements[i].setAttribute("fill","blue");
+                elements[i].setAttribute("fill","#5DB0B8");
         }
 }
 
