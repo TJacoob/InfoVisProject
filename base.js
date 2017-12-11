@@ -5,6 +5,7 @@ var time = 0;
 var time_samples = ["April 2015", "July 2015","October 2015","December 2015" ,"February 2016","May 2016", "September 2016", "November 2016", "January 2017","March 2017", "June 2017", "October 2017"];
 var country = [];
 var countryColor = {"US":"blue", "RU":"white","CN":"yellow","BR":"olive","DE":"black","FR":"teal","GB":"red","CA":"maroon","PL":"purple","PT":"green"};
+var countryName = {"US":"United States Of America", "RU":"Russia","CN":"China","BR":"Brazil","DE":"Germany","FR":"França","GB":"United Kingdom","CA":"Canada","PL":"Poland","PT":"Portugal"};
 
 //scatterPlot variables
 var actionArray = {};
@@ -664,7 +665,7 @@ function drawBarchart() {
             .attr("height",function(d){
                 return d.howlong;
             })  
-            .attr("fill","purple")
+            .attr("fill","#212121")
             .attr("x",function(d, i)  {
                 return (i*(63+((country.length+1)*21)))+42 + padding;
             })
@@ -672,7 +673,7 @@ function drawBarchart() {
         .append("title")
             .text(function(d, i) 
             {
-                return (i*(63+((country.length+1)*21)))+42 + padding + " hours";
+                return "How long to beat: " +d.howlong + " hours";
             });
         
         
@@ -705,7 +706,7 @@ function drawBarchart() {
                 .text(function(d) 
                 {
                     var h = d[c];
-                    return (h.substring(0,h.indexOf(":"))) + " hours";
+                    return countryName[c] + ": " + (h.substring(0,h.indexOf(":"))) + " hours";
                 });
     });
 }
