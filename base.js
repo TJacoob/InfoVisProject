@@ -14,20 +14,19 @@ var strategyArray = {};
 var currentTag;
 var colorv5 ;
 
+//zoom variables
+var xaxis;
+var yaxis;
+var xscale;
+var hscale;
+var view;
+var svg;
+var svg2;
+var margin = { top: 20, right: 20, bottom: 30, left: 30 };
+var brush;
+var scatter;
 
 //ScatterPlot Files
-d3.json("Data/Game Tag Data/GameTagDate.json", function (data) {
-    //var json = JSON.parse('data');
-    var json = data;
-    var keys = Object.keys(json);
-   
-    for(var i=0;i<keys.length;i++){
-        var key = keys[i];
-        var key2 = Object.keys(json[key]);
-        for (var j=0;j<key2.length;j++)
-            time_samples.push(JSON.stringify(json[key][key2]));
-    }	
-})
 
 function getDownloadData(){
 	console.log(time);
@@ -37,21 +36,7 @@ function getDownloadData(){
 	})
 }
 
-d3.json("Data/Game Tag Data/actionCoordinates.json", function (data) {
-    actionArray = data;
-})
 
-d3.json("Data/Game Tag Data/indieCoordinates.json", function (data) {
-    indieArray = data;  
-})
-
-d3.json("Data/Game Tag Data/rpgCoordinates.json", function (data) {
-    rpgArray = data;   
-})
-
-d3.json("Data/Game Tag Data/strategyCoordinates.json", function (data) {
-    strategyArray = data;
-})
 
 //Main Functions
 function toggleCountry(code)
@@ -103,17 +88,21 @@ function worldmap()
 			}
 		});
 
-		country.forEach(function(c){
-			$("#"+c,svgRoot).addClass("selected");
-			data = download_dataset.find(o => o.country === c).value;
-			$("#"+c,svgRoot).css("opacity",(data/100)+.5);
-			$("#"+c,svgRoot).children()[0].innerHTML += ": "+data+" PB";
-            // New feature -> color border
-            let col = countryColor[c];            
-            $("#"+c).css("border","2px solid "+col);
-            $("#"+c,svgRoot).css("stroke",col);
-            $("#"+c,svgRoot).css("stroke-width","2px");
-		});
+        if(download_dataset!=null)
+    		country.forEach(function(c){
+    			$("#"+c,svgRoot).addClass("selected");
+    			data = download_dataset.find(o => o.country === c).value;
+    			$("#"+c,svgRoot).css("opacity",(data/100)+.5);
+    			$("#"+c,svgRoot).children()[0].innerHTML += ": "+data+" PB";
+                // New feature -> color border
+                let col = countryColor[c];            
+                $("#"+c).css("border","2px solid "+col);
+                $("#"+c,svgRoot).css("stroke",col);
+                $("#"+c,svgRoot).css("stroke-width","2px");
+    		});
+        else{
+            console.log("No data file");//Remove alert and Put all countries without colour, so we know that they have no data.
+        }
 	})
 }
 
@@ -153,7 +142,7 @@ function unlightCountry(c){
     	})
     }
 }
- 
+
 function startup(){
 
 	getDownloadData();
@@ -163,7 +152,7 @@ function startup(){
 		$( "#slider" ).slider(
 			{
 				min:0,
-				max:9,
+				max:11,
 				change: function( event, ui )
 				{
 					time = $( "#slider" ).slider("value");
@@ -181,212 +170,10 @@ function startup(){
 		$( "#sortable" ).sortable({
 			revert: true
 		});
-		//$( ".dataBox" ).draggable({ containment: "parent" });
-		//$( ".dataBox" ).draggable({ containment: "#sortable", scroll: false });
-		//$( "ul, li" ).disableSelection();
   	} );
     
-    axisCreator();
-
+    startupVi5();
   	worldmap();
-}
-
-//ScatterPlot - VIS5 Function
-function axisCreator(){
-
-    dataset = strategyArray;
-    w = $("#vis5").width();
-	h = $("#vis5").height();
-
-    var svg = d3.select("#vis5")
-                .append("svg")
-                .attr("width",w)
-                .attr("height",h)
-		
-    var padding = 30;
-    var bar_w = 20;
-    var r = 2;
-
-    var hscale = d3.scaleLinear()
-                         .domain([14,0])
-                         .range([padding,h-padding]);
-			 
-    var xscale = d3.scaleLinear()
-                       .domain([0,9000])
-                       .range([padding,w-padding]);
-
-    var yaxis = d3.axisLeft()
-                  .scale(hscale);                  
-
-    var xaxis = d3.axisBottom()
-                .scale(xscale)
-                .ticks(dataset.length/2);
-              
-    var cscale = d3.scaleLinear()
-        .domain([d3.min(11, function(d) { return d[d.length-1];}),
-         d3.max(11, function(d) { return d[d.length-1];})])
-        .range(["red", "yellow"]);
-              
-    gY = svg.append("g")
-   	.attr("transform","translate(30,0)")  
-	.attr("class","y axis")
-	.call(yaxis)
-    .append("text")
-     .attr("class", "label")
-     .attr("transform", "rotate(-90)")
-     .attr("y", 0)
-     .attr("dy", ".75em")
-     .attr("id","yID")
-     .text(function(d) {
-        return "Average Price (€)";
-      })
-      .style("stroke","black")
-      .attr("dy", "1em");
-
-
-
-    gX = svg.append("g")
-   	.attr("transform","translate(0," + (h-padding) + ")")
-	.call(xaxis)
-    .append("text")
-     .attr("class", "label")
-     .attr("x", w-padding)
-     .attr("y", 0)
-     .text(function(d) {
-        return "# of Games";
-      })
-      .style("stroke","black")
-      .attr("dy", "1em");
-
-}
-
-function dropdown5Select(tag){
-    console.log("Time = "+time);
-    var name ="";
-    switch(tag){
-        case 0:  
-            name = "Action";
-            dataset = actionArray;
-            colorv5 = "red";
-        break;
-        case 1:
-            name = "Indie";
-            dataset = indieArray;
-            colorv5 = "blue";
-        break;
-        case 2:
-            name = "RPG";
-            dataset = rpgArray;
-            colorv5 = "orange";
-        break;
-        case 3:
-            name = "Strategy";
-            dataset = strategyArray;
-            colorv5 = "green";
-        break;
-        default:
-            alert("Html page changed!!");
-        break;
-    }
-    //Change button Name
-    $(document).ready(function(){
-        $("#buttonGT").text(name);
-    });
-    // -- //
-    currentTag = tag;
-    clearDots(tag);    
-    scatterPlot(tag);
-            
-}
-
-function clearDots(tag){
-    console.log("Tag = "+tag);
-    for(var z=0; z<4;z++){
-        if(z!=tag){
-            var elements = document.getElementsByClassName(z);
-            if(elements!=null)
-            for(var i=0; i<elements.length; i++) {
-                elements[i].parentElement.remove(elements[i]); //Calls parent and deletes the child!
-            }
-        }
-    }       
-}
-
-function scatterPlot (tag) {    
-
-    var svg = d3.select("#vis5")
-                .append("svg")
-                .attr("width",w)
-                .attr("height",h);
-    
-    var padding = w / 20;
-    var bar_w = h / 20;
-    var r = 2;
-
-    var hscale = d3.scaleLinear()
-                         .domain([14,0])
-                         .range([padding,h-padding]);
-             
-    var xscale = d3.scaleLinear()
-                       .domain([0,9000])
-                       .range([padding,w-padding]);
-    
-   svg.selectAll("circle")
-        .data(dataset)
-        .enter().append("circle")
-        .attr("r",r)
-        .attr("fill",colorv5)
-        .attr("class", tag)
-        .attr("cx",function(d, i) {
-            return  xscale(d.cx);
-          })
-        .attr("cy",function(d) {
-               return hscale(d.cy);
-            })
-        .on("mouseover", function(d){
-            // Put tooltip in the right position, change the text and make it visible
-            tooltip = document.getElementById("tooltipv5");
-            tooltip.setAttribute("x",xscale(d.cx));
-            tooltip.setAttribute("y",hscale(d.cy));
-            $(document).ready(function(){
-                $("#tooltipv5").text("Avg price: "+d.cy+"\nNumber Games = "+d.cx);
-            });
-            tooltip.setAttribute("visibility","visible");
-            //scatterMouseOver(d);
-        })
-        .on("mouseout", function(d){
-            tooltip = document.getElementById("tooltipv5");
-            tooltip.setAttribute("visibility","hidden");
-        });
-    
-    changeCircleColor(tag);
-       //
-}
-
-function changeCircleColor(tag){
-    console.log("colour = "+colorv5);
-    console.log("Tag = "+tag);
-    var elements = document.getElementsByClassName(tag);
-    if(elements!=null) //always true Except for an error
-        for(var i=0; i<elements.length; i++) {
-            if(i==time)
-                elements[i].setAttribute("fill","black");
-            else
-                elements[i].setAttribute("fill",colorv5);
-        }
-}
-
-function scatterMouseOver(object){
-    
-    var avgPrice = object.cy;
-    var totNumber = object.cx;
-    var month = time_samples[object.time];
-    console.log("all good: "+object);
-    
-}
-
-function HideTooltip(evt){
-    ttooltip.setAttribute("visibility","hidden");
 }
 
 
