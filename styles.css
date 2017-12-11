@@ -108,3 +108,20 @@ a:visited { text-decoration: none ; color:inherit ; }
 /* VISUALIZATION 5 STYLES*/
 
 /* Popups :) */
+
+.scrollable-menu {
+	width: 30vw;
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+.legenda
+{
+	font-size: 10px;
+}
+
+.bar:hover
+{
+	opacity: 0.8;
+}

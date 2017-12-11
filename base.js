@@ -14,7 +14,6 @@ var strategyArray = {};
 var currentTag;
 var colorv5 ;
 
-
 //ScatterPlot Files
 d3.json("Data/Game Tag Data/GameTagDate.json", function (data) {
     //var json = JSON.parse('data');
@@ -30,9 +29,7 @@ d3.json("Data/Game Tag Data/GameTagDate.json", function (data) {
 })
 
 function getDownloadData(){
-	console.log(time);
 	d3.csv("data/download/"+time+".csv", function (data) {
-		console.log(data);
 	    download_dataset = data;
 	})
 }
@@ -69,6 +66,7 @@ function toggleCountry(code)
 		  country.push(code);
 	}
 	updateCountryDisplay();
+    updateGameList();
 }
 
 function updateCountryDisplay() // Corre todas as bandeiras, remove a classe que lhes dá cor, volta a dar se tiver selecionado
@@ -172,6 +170,7 @@ function startup(){
                     changeCircleColor(currentTag);
 					getDownloadData();
 					updateCountryDisplay();
+                    updateGameList();
 				}
 			}
 		);
@@ -189,6 +188,9 @@ function startup(){
     axisCreator();
 
   	worldmap();
+
+    drawBarchart();
+
 }
 
 //ScatterPlot - VIS5 Function
@@ -504,3 +506,211 @@ d3.json("Data/Game Tag Data/GameTagCombined.json", function (data) {
     gen_scatterplot();
 })
 */
+
+var activeGames = [];
+var games = [];
+var countryData = [];
+var gameBeat = [];
+var barData = [];
+
+d3.csv("data/howlong/games.csv", function (data) {
+    gameBeat = data ;
+});
+
+$(document).on('click', '.dropdown-menu.dropdown-menu-form', function(e) {
+  e.stopPropagation();
+});
+
+function updateGameList(){
+    countryData = [];
+    if (country.length == 0 )
+        listGames();
+    country.forEach(function(c){
+        d3.csv("data/country/"+c+"/"+time+".csv", function (data) {
+            countryData.push(data) ;
+            listGames();
+            updateBarData();
+            drawBarchart();
+        });
+    });
+}
+
+function listGames(){
+    $("#gamesList").empty();
+    games = [];
+    countryData.forEach(function(d){
+        d.forEach(function(g){
+            if (games.indexOf(g.Game) == -1 )
+                games.push(g.Game);
+        })
+    });
+    
+    games.forEach(function(g){
+        $("#gamesList").append('<li class="px-3"><label class="checkbox px-1 m-0"><input class="mr-1" name="gameRadio" id="'+g+'" type="checkbox">'+g+'</label></li>');
+    });
+
+    //console.log(games);
+
+    $("input[name=gameRadio]").click(function(){
+        if ( activeGames.indexOf(this.id) != -1)
+            activeGames.splice(activeGames.indexOf(this.id), 1);
+        else
+            activeGames.push(this.id);
+        updateBarData();
+        drawBarchart();
+    });
+
+    activeGames.forEach(function(g){
+        if ( games.indexOf(g) != -1 )
+            $('[id="'+g+'"]').prop('checked', true);
+        else
+            console.log(g+" is not in this list")
+    });
+
+    //console.log(countryData);
+}
+
+function updateBarData(){
+
+    barData = [];
+    activeGames.forEach(function(g){
+        var ag = {"game":g,"howlong":gameBeat.find(o => o.game === g).hours};
+        country.forEach(function(c){
+            var gc = countryData[country.indexOf(c)].find(o => o.Game === g);
+            if (gc == undefined)
+                ag[c] = "0";    
+            else
+                ag[c] = gc["Hours (2 weeks)"];
+            //console.log(ag);
+        })
+        barData.push(ag);
+    });
+
+    //console.log(barData);
+
+}
+
+function drawBarchart() {
+
+    clearBarchart();
+    // Draw Barchart itself
+
+    // Axis
+
+    w = $("#vis3").width();
+    h = $("#vis3").height();
+
+    var svg = d3.select("#vis3")
+                .append("svg")
+                .attr("width",600)
+                .attr("height",500)
+
+    var padding = 30;
+    var bar_w = 20;
+    var r = 2;
+
+    var height = h - padding;    
+    var width = w + padding;
+
+    var hscale = d3.scaleLinear()
+        .domain([90,0])
+        .range([padding,h-padding]);
+    
+    var xscale = d3.scaleLinear()
+        .domain([0,0])
+        .range([padding,w-padding]);
+
+    var yaxis = d3.axisLeft()
+        .scale(hscale);                  
+
+    var xaxis = d3.axisBottom()
+        .scale(xscale)
+        .ticks(dataset.length/2);
+      
+    /*        
+    var cscale = d3.scaleLinear()
+        .domain([d3.min(11, function(d) { return d[d.length-1];}),
+            d3.max(11, function(d) { return d[d.length-1];})])
+        .range(["red", "yellow"]);
+    */
+              
+    gY = svg.append("g")
+        .attr("transform","translate(30,0)")  
+        .attr("class","y axis")
+        .call(yaxis)
+        .append("text")
+        .attr("class", "label")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0)
+        .attr("dy", ".75em")
+        .attr("id","yID")
+        .text(function(d) {
+            return "Hours";
+        })
+        .style("stroke","black")
+        .attr("dy", "1em");
+
+    gX = svg.append("g")
+        .attr("transform","translate(0," + (h-padding) + ")")
+        .call(xaxis)
+
+    // Data
+    var divs = svg.selectAll('rect').data(barData).enter();
+
+    divs.append("g")
+        .append("rect")
+            .attr("class","bar")
+            .attr("width",20)
+            .attr("height",function(d){
+                return d.howlong;
+            })  
+            .attr("fill","purple")
+            .attr("x",function(d, i)  {
+                return (i*(63+((country.length+1)*21)))+42 + padding;
+            })
+            .attr("y",function(d) { return height-d.howlong ; })
+        .append("title")
+            .text(function(d, i) 
+            {
+                return (i*(63+((country.length+1)*21)))+42 + padding + " hours";
+            });
+        
+        
+
+    divs.append("text")
+        .attr("x",function(d, i)  {
+            return (i*(63+((country.length+1)*21)))+42 + padding;
+        })
+        .attr("y",function(d) { return height + padding/1.5 ; })
+        .attr("class","legenda")
+        .text(function(d) { return d.game; });
+
+    country.forEach(function(c){
+        divs.append("rect")
+                .attr("class","bar")
+                .attr("width",20)
+                .attr("height",function(d){
+                    var h = d[c];
+                    return (h.substring(0,h.indexOf(":")));
+                })  
+                .attr("fill",countryColor[c])
+                .attr("x",function(d, i) { 
+                    return (i*(63+((country.length+1)*21)))+(21 *(country.indexOf(c)+1))+42 + padding;
+                })
+                .attr("y",function(d) {
+                    var h = d[c];
+                    return height-(h.substring(0,h.indexOf(":")));
+                })
+            .append("title")
+                .text(function(d) 
+                {
+                    var h = d[c];
+                    return (h.substring(0,h.indexOf(":"))) + " hours";
+                });
+    });
+}
+
+function clearBarchart()
+{
+    $( "#vis3" ).empty();
+}
