@@ -152,7 +152,7 @@ function startup(){
 		$( "#slider" ).slider(
 			{
 				min:0,
-				max:9,
+				max:11,
 				change: function( event, ui )
 				{
 					time = $( "#slider" ).slider("value");
