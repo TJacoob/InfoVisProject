@@ -4,7 +4,7 @@ var download_dataset;
 var time = 0;
 var time_samples = ["April 2015", "July 2015","October 2015","December 2015" ,"February 2016","May 2016", "September 2016", "November 2016", "January 2017","March 2017", "June 2017", "October 2017"];
 var country = [];
-var countryColor = {"US":"blue", "RU":"white","CN":"yellow","BR":"olive","DE":"black","FR":"teal","GB":"red","CA":"maroon","PL":"purple","PT":"green"};
+var countryColor = {"US":"#FF8C00", "RU":"#32CD32","CN":"#FFD700","BR":"#006400","DE":"#0000CD","FR":"#663399","GB":"#FF69B4","CA":"#8B4513","PL":"#000000","PT":"#FF0000"};
 var countryName = {"US":"United States Of America", "RU":"Russia","CN":"China","BR":"Brazil","DE":"Germany","FR":"França","GB":"United Kingdom","CA":"Canada","PL":"Poland","PT":"Portugal"};
 
 //scatterPlot variables
@@ -92,7 +92,7 @@ function worldmap()
     		country.forEach(function(c){
     			$("#"+c,svgRoot).addClass("selected");
     			data = download_dataset.find(o => o.country === c).value;
-    			$("#"+c,svgRoot).css("opacity",(data/100)+.5);
+    			$("#"+c,svgRoot).css("opacity",(data/50)+.5);
     			$("#"+c,svgRoot).children()[0].innerHTML += ": "+data+" PB";
                 // New feature -> color border
                 let col = countryColor[c];            
@@ -119,7 +119,7 @@ function highlightCountry(c){
             let col = countryColor[c];
             $("#"+c).css("border","2px solid "+col);
             $("#"+c,svgRoot).css("stroke",col);
-            $("#"+c,svgRoot).css("stroke-width","2.5px");
+            $("#"+c,svgRoot).css("stroke-width","3px");
         })  
     }
 
