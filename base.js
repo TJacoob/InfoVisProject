@@ -398,8 +398,8 @@ function drawBarchart() {
 
     var svg = d3.select("#vis3")
                 .append("svg")
-                .attr("width",600)
-                .attr("height",500)
+                .attr("width",w)
+                .attr("height",h)
 
     var padding = 30;
     var bar_w = 20;
@@ -409,7 +409,7 @@ function drawBarchart() {
     var width = w + padding;
 
     var hscale = d3.scaleLinear()
-        .domain([90,0])
+        .domain([95,0])
         .range([padding,h-padding]);
     
     var xscale = d3.scaleLinear()
@@ -443,7 +443,7 @@ function drawBarchart() {
         .text(function(d) {
             return "Hours";
         })
-        .style("stroke","black")
+        .style("fill","black")
         .attr("dy", "1em");
 
     gX = svg.append("g")
@@ -458,13 +458,13 @@ function drawBarchart() {
             .attr("class","bar")
             .attr("width",20)
             .attr("height",function(d){
-                return d.howlong;
+                return d.howlong *2;
             })  
-            .attr("fill","#212121")
+            .attr("fill","#5DB0B8")
             .attr("x",function(d, i)  {
                 return (i*(63+((country.length+1)*21)))+42 + padding;
             })
-            .attr("y",function(d) { return height-d.howlong ; })
+            .attr("y",function(d) { return height-(d.howlong*2); })
         .append("title")
             .text(function(d, i) 
             {
@@ -487,7 +487,7 @@ function drawBarchart() {
                 .attr("width",20)
                 .attr("height",function(d){
                     var h = d[c];
-                    return (h.substring(0,h.indexOf(":")));
+                    return (h.substring(0,h.indexOf(":"))*2);
                 })  
                 .attr("fill",countryColor[c])
                 .attr("x",function(d, i) { 
@@ -495,7 +495,7 @@ function drawBarchart() {
                 })
                 .attr("y",function(d) {
                     var h = d[c];
-                    return height-(h.substring(0,h.indexOf(":")));
+                    return height-(h.substring(0,h.indexOf(":"))*2);
                 })
             .append("title")
                 .text(function(d) 

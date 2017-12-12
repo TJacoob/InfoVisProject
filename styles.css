@@ -192,9 +192,16 @@ a:visited { text-decoration: none ; color:inherit ; }
 
 .scrollable-menu {
 	width: 30vw;
-    height: auto;
-    max-height: 200px;
-    overflow-x: hidden;
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+}
+
+.game-menu {
+  width: 20vw;
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
 }
 
 .legenda
@@ -205,4 +212,9 @@ a:visited { text-decoration: none ; color:inherit ; }
 .bar:hover
 {
 	opacity: 0.8;
+}
+
+.listOption:hover
+{
+  background-color: #e2e2e2;
 }
