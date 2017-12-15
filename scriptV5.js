@@ -96,6 +96,7 @@ function scatterplot(dataset){
   // append zoom area
   view = innerSpace.append("rect")
     .attr("class", "zoom")
+    .attr("class", "rectV5")
     .attr("width", width)
     .attr("height", height)
     .call(zoom)
@@ -204,9 +205,9 @@ function loadingVis5(id){
 function genAxis(){
 
 
-  var svgWidth = $("#vis5").width();
-  var svgHeight = $("#vis5").height();
-  var margin = {top: 30, right: 40, bottom: 50, left: 40};
+  var svgWidth = 800;
+  var svgHeight = 300;
+  var margin = {top: 30, right: 40, bottom: 50, left: 60};
 
   var width = svgWidth - margin.left - margin.right;
   var height = svgHeight - margin.top - margin.bottom;

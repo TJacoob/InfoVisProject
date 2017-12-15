@@ -1,5 +1,5 @@
 /* Fonts */
-@import url('https://fonts.googleapis.com/css?family=Raleway:200,400,600');
+
 body { font-family: 'Raleway', sans-serif !important; overflow: scroll; }
 body { overflow-x: hidden; }
 .fw-6 { font-weight: 600; }
@@ -107,7 +107,7 @@ a:visited { text-decoration: none ; color:inherit ; }
 
 /* VISUALIZATION 5 STYLES*/
 
-rect {
+.rectV5 {
   fill: transparent;
   shape-rendering: crispEdges;
 }
@@ -188,4 +188,33 @@ rect {
   cursor: move;
   fill: none;
   pointer-events: all;
+}
+
+.scrollable-menu {
+	width: 30vw;
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+}
+
+.game-menu {
+  width: 20vw;
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+}
+
+.legenda
+{
+	font-size: 10px;
+}
+
+.bar:hover
+{
+	opacity: 0.8;
+}
+
+.listOption:hover
+{
+  background-color: #e2e2e2;
 }

@@ -14,6 +14,7 @@
         <meta name="keywords" content="keywords,here">
       
         <link rel="stylesheet" href="styles.css" type="text/css">
+        <link rel="stylesheet" href="font.css" type="text/css">
         <link rel="stylesheet" href="cdn/bootstrap.css" type="text/css">
         <link rel="stylesheet" href="cdn/jquery-ui.css" type="text/css">
         <script src="cdn/jquery.js" type="text/javascript"></script>
@@ -22,7 +23,10 @@
         <script src="cdn/bootstrap.js" type="text/javascript"></script>
         <script src="cdn/fontawesome.js" type="text/javascript"></script>
         <script src="cdn/d3.js" charset="utf-8" type="text/javascript"></script>
+        <script src="d3-tip.js"></script>
+        <script src="scriptV5.js" type="text/javascript"></script>
         <script src="base.js" type="text/javascript"></script>
+
         
     </head>
 
@@ -114,27 +118,33 @@
                     <div class="col mx-2 my-1 dataBox cp">
                         <svg heigth="200" width="200" id="vis2" ></svg>
                     </div>
-                    <div class="col mx-2 my-1 dataBox cp" >
-                        <svg heigth="200" width="200" id="vis3"></svg>
-                    </div>
                     -->
+                    <div class="col mx-2 my-1 dataBox cp" >
+                        <div class="btn-group pull-right">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width: 30vw;">
+                                List of Games
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu scrollable-menu" role="menu" id="gamesList"></ul>
+                        </div>
+                        <svg class="m-3" width="800" heigth="250" preserveAspectRatio="xMinYMin meet" viewBox="0 0 800 250" id="vis3"></svg>
+                    </div>
                     <div class="col mx-2 my-1 dataBox cp">
                         <object type="image/svg+xml" id="worldmap" data="img/world.svg">Your browser does not support SVGs</object>
                     </div>
                     <div class="col mx-2 my-1 dataBox cp">
                         <div class="btn-group pull-right">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="buttonGT">
-                                 Game Tags <span class="caret"></span>
-                        </button>
-                        <!--<div id="popupV5" style="display: none">HEYYY</div>  <!- lool não pode ser isto assim xD-->
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a class="m" value="Action" onClick='dropdown5Select(0)'>Action</a></li>
-                            <li><a class="m" value="Indie" onClick='dropdown5Select(1)'>Indie</a></li>
-                            <li><a class="m" value="RPG" onClick='dropdown5Select(2)'>RPG</a></li>
-                            <li><a class="m" value="Strategy" onClick='dropdown5Select(3)'>Strategy</a></li>
-                        </ul>
-                    </div>
-                    
+                            <button type="button" class="btn btn-default dropdown-toggle mt-2" data-toggle="dropdown" id="buttonGT" style="width: 20vw;">
+                                     Game Tags <span class="caret"></span>
+                            </button>
+                            <!--<div id="popupV5" style="display: none">HEYYY</div>  <!- lool não pode ser isto assim xD-->
+                            <ul class="dropdown-menu game-menu text-center" role="menu">
+                                <li onClick='dropdown5Select(0)' class="listOption"><a class="m" value="Action">Action</a></li>
+                                <li onClick='dropdown5Select(1)' class="listOption"><a class="m" value="Indie">Indie</a></li>
+                                <li onClick='dropdown5Select(2)' class="listOption"><a class="m" value="RPG" >RPG</a></li>
+                                <li onClick='dropdown5Select(3)' class="listOption"><a class="m" value="Strategy" >Strategy</a></li>
+                            </ul>
+                        </div>
                         <svg width="500px" height="300px" id="vis5"></svg>
                     </div>
                 </div>
