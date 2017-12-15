@@ -6,7 +6,7 @@ var time_samples = ["April 2015", "July 2015","October 2015","December 2015" ,"F
 var country = [];
 var countryColor = {"US":"", "RU":"","CN":"","BR":"","DE":"","FR":"","GB":"","CA":"","PL":"","PT":""};
 var countryName = {"US":"United States Of America", "RU":"Russia","CN":"China","BR":"Brazil","DE":"Germany","FR":"França","GB":"United Kingdom","CA":"Canada","PL":"Poland","PT":"Portugal"};
-var colors= ["#E0A458","#508E27","#FF6978","#F75C03"];
+var colors= ["#9E1457","#FF422E","#2EFF2E","#FFFF41"];
 //var colors= ["#006915","#6A4FCE","#DD3C12","#E15403"];
 
 //scatterPlot variables
@@ -48,7 +48,7 @@ function toggleCountry(code)
 		country.splice(index, 1);
         unassignColor(code);
         $("#"+code).parent().parent().css("background-color","#1c1c1c");
-        console.log($("#"+code));
+        //console.log($("#"+code));
         $("#"+code).css("box-shadow","2px 2px 2px 0px rgba(28,28,28,0)");
 	}
 	else
@@ -365,6 +365,9 @@ function updateGameList(){
 }
 
 function listGames(){
+
+    //Falta se um jogo estiver selecionado aparecer na lista
+
     $("#gamesList").empty();
     games = [];
     countryData.forEach(function(d){
@@ -372,6 +375,12 @@ function listGames(){
             if (games.indexOf(g.Game) == -1 )
                 games.push(g.Game);
         })
+    });
+
+    activeGames.forEach(function(g){
+        if ( games.indexOf(g) == -1)
+            //console.log(g+" não tá na lista");
+            games.unshift(g);
     });
     
     games.forEach(function(g){
@@ -404,6 +413,15 @@ function listGames(){
     });
 
     //console.log(countryData);
+}
+
+
+function resetGames(){
+    console.log("here");
+    activeGames = [];
+    listGames();
+    updateBarData();
+    drawBarchart();
 }
 
 function updateBarData(){

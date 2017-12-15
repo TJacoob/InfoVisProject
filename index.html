@@ -121,11 +121,14 @@
                     -->
                     <div class="col mx-2 my-1 dataBox cp" >
                         <div class="btn-group pull-right">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width: 30vw;">
+                            <button type="button" class="btn btn-default mt-2 mr-2 cp" style="width: 20vw;" onClick="resetGames()">
+                                Clear All Games
+                            </button>
+                            <button type="button" class="btn btn-default dropdown-toggle mt-2" data-toggle="dropdown" style="width: 30vw;">
                                 List of Games
                                 <span class="caret"></span>
                             </button>
-                            <ul class="dropdown-menu scrollable-menu" role="menu" id="gamesList"></ul>
+                            <ul class="dropdown-menu dropdown-menu-right scrollable-menu" role="menu" id="gamesList"></ul>
                         </div>
                         <svg class="m-3" width="800" heigth="250" preserveAspectRatio="xMinYMin meet" viewBox="0 0 800 250" id="vis3"></svg>
                     </div>
