@@ -4,8 +4,10 @@ var download_dataset;
 var time = 0;
 var time_samples = ["April 2015", "July 2015","October 2015","December 2015" ,"February 2016","May 2016", "September 2016", "November 2016", "January 2017","March 2017", "June 2017", "October 2017"];
 var country = [];
-var countryColor = {"US":"#FF8C00", "RU":"#32CD32","CN":"#FFD700","BR":"#006400","DE":"#0000CD","FR":"#663399","GB":"#FF69B4","CA":"#8B4513","PL":"#000000","PT":"#FF0000"};
+var countryColor = {"US":"", "RU":"","CN":"","BR":"","DE":"","FR":"","GB":"","CA":"","PL":"","PT":""};
 var countryName = {"US":"United States Of America", "RU":"Russia","CN":"China","BR":"Brazil","DE":"Germany","FR":"França","GB":"United Kingdom","CA":"Canada","PL":"Poland","PT":"Portugal"};
+var colors= ["#E0A458","#508E27","#FF6978","#F75C03"];
+//var colors= ["#006915","#6A4FCE","#DD3C12","#E15403"];
 
 //scatterPlot variables
 var actionArray = {};
@@ -44,13 +46,23 @@ function toggleCountry(code)
 	if ( index > -1 ) // Se o país estiver selecionado, remove-o da lista
 	{
 		country.splice(index, 1);
+        unassignColor(code);
+        $("#"+code).parent().parent().css("background-color","#1c1c1c");
+        console.log($("#"+code));
+        $("#"+code).css("box-shadow","2px 2px 2px 0px rgba(28,28,28,0)");
 	}
 	else
 	{
         if ( country.length >= 4)   // se já estiverem selecionados 4 países
             alert("You can have a max of 4 countries selected\nSó podem estar selecionados 4 países");
         else
-		  country.push(code);
+        {
+		    country.push(code);
+            assignColor(code);
+            $("#"+code).parent().parent().css("background-color",countryColor[code]);
+            $("#"+code).css("box-shadow","2px 2px 2px 0px rgba(28,28,28,1)");
+        }
+
 	}
 	updateCountryDisplay();
     updateGameList();
@@ -95,8 +107,9 @@ function worldmap()
     			$("#"+c,svgRoot).css("opacity",(data/50)+.5);
     			$("#"+c,svgRoot).children()[0].innerHTML += ": "+data+" PB";
                 // New feature -> color border
-                let col = countryColor[c];            
-                $("#"+c).css("border","2px solid "+col);
+                let col = countryColor[c];
+                //$("#"+c).css("border","2px solid "+col);
+                //$("#"+c).css("box-shadow","2px 2px 2px 0px rgba(28,28,28,1)");
                 $("#"+c,svgRoot).css("stroke",col);
                 $("#"+c,svgRoot).css("stroke-width","2px");
     		});
@@ -108,7 +121,7 @@ function worldmap()
 
 function highlightCountry(c){
 
-    if ( country.indexOf(c) == -1 ) // Se o país não estiver selecionado, autoriza a ação
+    if ( country.indexOf(c) == -1 ) // Se o país não estiver selecionado, troca o fundo
     {
         $(document).ready(function(){
             var a = document.getElementById("worldmap");
@@ -117,12 +130,25 @@ function highlightCountry(c){
             var svgRoot  = svgDoc.documentElement;
 
             let col = countryColor[c];
-            $("#"+c).css("border","2px solid "+col);
-            $("#"+c,svgRoot).css("stroke",col);
-            $("#"+c,svgRoot).css("stroke-width","3px");
+            //$("#"+c).css("border","2px solid "+col);
+            //$("#"+c).parent().parent().css("background-color","#1c1c1c");
+            //$("#"+c).css("box-shadow","2px 2px 2px 0px rgba(28,28,28,0)");
+            //$("#"+c,svgRoot).css("stroke",col);
+            //$("#"+c,svgRoot).css("stroke-width","3px");
+            $("#"+c,svgRoot).css("fill","#212121");
         })  
     }
+    else // Se o país estiver selecionado, aumenta as borders
+    {
+        $(document).ready(function(){
+            var a = document.getElementById("worldmap");
 
+            var svgDoc = a.contentDocument; //get the inner DOM of alpha.svg
+            var svgRoot  = svgDoc.documentElement;
+
+            $("#"+c,svgRoot).css("stroke-width","4px");
+        })  
+    }
 	
 }
 
@@ -139,7 +165,21 @@ function unlightCountry(c){
             $("#"+c).css("border","0px solid white");
     		$("#"+c,svgRoot).css("stroke","white");
     		$("#"+c,svgRoot).css("stroke-width","0.5");
+            $("#"+c,svgRoot).css("fill","#686868");
     	})
+    }
+    else // Se o país estiver selecionado, aumenta as borders
+    {
+        $(document).ready(function(){
+            var a = document.getElementById("worldmap");
+
+            var svgDoc = a.contentDocument; //get the inner DOM of alpha.svg
+            var svgRoot  = svgDoc.documentElement;
+
+            let col = countryColor[c];
+            $("#"+c,svgRoot).css("stroke",col);
+            $("#"+c,svgRoot).css("stroke-width","3px");
+        })  
     }
 }
 
@@ -509,4 +549,19 @@ function drawBarchart() {
 function clearBarchart()
 {
     $( "#vis3" ).empty();
+}
+
+// Color System
+
+function assignColor(country)
+{
+    let c = colors.pop();
+    countryColor[country]=c;
+}
+
+function unassignColor(country)
+{
+    let c = countryColor[country];
+    colors.push(c);
+    countryColor[country]="";
 }

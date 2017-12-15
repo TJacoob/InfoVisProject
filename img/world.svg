@@ -13,11 +13,11 @@
 			}
 			.selected
 			{
-				fill:#1e93a0;
+				fill:#115158 !important;
 			}
 			.selected:hover
 			{
-				fill:#50939b;
+				fill:#50939b !important;
 			}
 			.tooltip{
 			    display: inline;
