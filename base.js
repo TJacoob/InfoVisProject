@@ -66,6 +66,7 @@ function toggleCountry(code)
 	}
 	updateCountryDisplay();
     updateGameList();
+    //vis2Axis();
 }
 
 function updateCountryDisplay() // Corre todas as bandeiras, remove a classe que lhes dá cor, volta a dar se tiver selecionado
@@ -218,6 +219,8 @@ function startup(){
 
     drawBarchart();
 
+    vis2Axis();
+
 }
 
 
@@ -360,13 +363,12 @@ function updateGameList(){
             listGames();
             updateBarData();
             drawBarchart();
+            vis2Axis();
         });
     });
 }
 
 function listGames(){
-
-    //Falta se um jogo estiver selecionado aparecer na lista
 
     $("#gamesList").empty();
     games = [];
@@ -387,7 +389,6 @@ function listGames(){
         $("#gamesList").append('<li class="px-3"><label class="checkbox px-1 m-0"><input class="mr-1" name="gameRadio" id="'+g+'" type="checkbox">'+g+'</label></li>');
     });
 
-    //console.log(games);
 
     $("input[name=gameRadio]").click(function(){
         if ( activeGames.indexOf(this.id) != -1)
@@ -395,7 +396,7 @@ function listGames(){
         else
             if ( activeGames.length >= 4)   // se já estiverem selecionados 4 países
             {
-                console.log(this.id);
+                //console.log(this.id);
                 $('[id="'+this.id+'"]').prop('checked', false);
                 alert("You can have a max of 4 games selected\nSó podem estar selecionados 4 jogos em simultaneo");
             }
@@ -417,7 +418,7 @@ function listGames(){
 
 
 function resetGames(){
-    console.log("here");
+    //console.log("here");
     activeGames = [];
     listGames();
     updateBarData();
@@ -425,6 +426,8 @@ function resetGames(){
 }
 
 function updateBarData(){
+
+    //console.log(countryData);
 
     barData = [];
     activeGames.forEach(function(g){
@@ -439,7 +442,7 @@ function updateBarData(){
         })
         barData.push(ag);
     });
-
+    
     //console.log(barData);
 
 }
@@ -466,6 +469,7 @@ function drawBarchart() {
     var height = h - padding;    
     var width = w + padding;
 
+    // Increase to prevent bar going beyond limit
     var hscale = d3.scaleLinear()
         .domain([95,0])
         .range([padding,h-padding]);
@@ -582,4 +586,136 @@ function unassignColor(country)
     let c = countryColor[country];
     colors.push(c);
     countryColor[country]="";
+}
+
+// Vis 2
+
+function vis2Axis()
+{
+
+    console.log("vis2Axis");
+    //clearBarchart();
+    $( "#vis2" ).empty();
+    // Draw Barchart itself
+
+    // Axis
+    w = $("#vis2").width();
+    h = $("#vis2").height();
+
+    var svg = d3.select("#vis2")
+                .append("svg")
+                .attr("width",w)
+                .attr("height",h)
+
+    var padding = 30;
+    var bar_w = 20;
+    var r = 2;
+
+    var height = h - padding;    
+    var width = w + padding;
+
+    var hscale = d3.scaleLinear()
+        .domain([95,0])
+        .range([padding,h-padding]);
+    
+    var xscale = d3.scaleLinear()
+        .domain([0,0])
+        .range([padding,w-padding]);
+
+    var yaxis = d3.axisLeft()
+        .scale(hscale);                  
+
+    var xaxis = d3.axisBottom()
+        .scale(xscale);
+        //.ticks(dataset.length/2);
+      
+    /*        
+    var cscale = d3.scaleLinear()
+        .domain([d3.min(11, function(d) { return d[d.length-1];}),
+            d3.max(11, function(d) { return d[d.length-1];})])
+        .range(["red", "yellow"]);
+    */
+              
+    gY = svg.append("g")
+        .attr("transform","translate(30,0)")  
+        .attr("class","y axis")
+        .call(yaxis)
+        .append("text")
+        .attr("class", "label")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0)
+        .attr("dy", ".75em")
+        .attr("id","yID")
+        .text(function(d) {
+            return "Hours";
+        })
+        .style("fill","black")
+        .attr("dy", "1em");
+
+    gX = svg.append("g")
+        .attr("transform","translate(0," + (h-padding) + ")")
+        .call(xaxis)
+
+
+    // Data
+    //console.log(countryData);
+    var vis3Data = [];
+    //object format: {"pt","countr strike","50"}
+
+    for (var e = 0; e < countryData.length; e++) {
+        c = countryData[e];
+        
+        let selected = country[e];
+        vis3Data.push({"country":selected,"game":"-","hours":"0"});
+        for (var i = 0; i < 5; i++)
+        {
+            let g = {};
+            //console.log(c[i]);
+            g["country"]=selected;
+            g["game"]=c[i]["Game"];
+            let h = c[i]["Hours (2 weeks)"].substring(0,c[i]["Hours (2 weeks)"].indexOf(":"));
+            g["hours"]= h ;
+            vis3Data.push(g);
+        }
+    };
+
+    console.log(vis3Data);
+    var divs = svg.selectAll('rect').data(vis3Data).enter();    
+
+    divs.append("g")
+        .append("rect")
+            .attr("class","bar")
+            .attr("width",20)
+            .attr("height",function(d){
+                return d.hours * 2;
+            })  
+            .attr("fill", function(d){ return countryColor[d.country] })
+            .attr("x",function(d, i)  {
+                return i*21 + padding;
+            })
+            .attr("y",function(d){
+                return height - (d.hours*2);
+            })
+        .append("title")
+            .text(function(d, i) 
+            {
+                return d.game + " : "+ d.hours + " hours";
+            });
+        
+    divs.append("text")
+        .attr("x",function(d, i)  {
+            if ( d.game == "-")
+                return (i*21) +21 + padding;
+        })
+        .attr("y",function(d) {
+            if ( d.game == "-")
+                return height + padding/1.5 ;
+        })
+        .attr("class","legenda")
+        .text(function(d) {
+            if ( d.game == "-")
+                return countryName[d.country];
+        });
+
+
 }
