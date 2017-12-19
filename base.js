@@ -217,7 +217,7 @@ function startup(){
   	} );
 
     $(".shape").shapeshift({
-        minColumns: 1
+        minColumns: 2
     });
     
     updateRadarChart();
