@@ -66,6 +66,7 @@ function toggleCountry(code)
 	}
 	updateCountryDisplay();
     updateGameList();
+    updateRadarChart();
     //vis2Axis();
 }
 
@@ -201,6 +202,7 @@ function startup(){
 					$( "#currentTime" ).text(time_samples[time]);
                     changeCircleColor(currentTag);
 					getDownloadData();
+                    updateRadarChart();
 					updateCountryDisplay();
                     updateGameList();
 				}
@@ -214,6 +216,7 @@ function startup(){
 		});
   	} );
     
+    updateRadarChart();
     startupVi5();
   	worldmap();
 
