@@ -1,6 +1,6 @@
 /* Fonts */
 
-body { font-family: 'Raleway', sans-serif !important; overflow: scroll; }
+body { font-family: 'Raleway', sans-serif !important; overflow: auto; }
 body { overflow-x: hidden; }
 .fw-6 { font-weight: 600; }
 .fw-4 { font-weight: 400; }
@@ -228,15 +228,21 @@ a:visited { text-decoration: none ; color:inherit ; }
 }
 
 .shape > div {
-    background: #CCC;
-    height: 100px;
+    background: #ededed;
+    /*height: 100px; */
     position: absolute;
-    width: 80px;
+    /*width: 80px; */
+    border-radius: .5em;
 }
-
-.shape > div[data-ss-colspan='2'] { width: 170px; }
 
 .shape .ss-placeholder-child {
     background: transparent;
     border: 1px dashed red;
+}
+
+/* Fixed */
+#dataContainer
+{
+  height: 90vh;
+  overflow-y: scroll;
 }

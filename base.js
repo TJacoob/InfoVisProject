@@ -449,7 +449,7 @@ function updateBarData(){
         })
         barData.push(ag);
     });
-    
+
     //console.log(barData);
 
 }
@@ -600,7 +600,7 @@ function unassignColor(country)
 function vis2Axis()
 {
 
-    console.log("vis2Axis");
+    //console.log("vis2Axis");
     //clearBarchart();
     $( "#vis2" ).empty();
     // Draw Barchart itself
@@ -667,7 +667,7 @@ function vis2Axis()
     // Data
     //console.log(countryData);
     var vis3Data = [];
-    //object format: {"pt","countr strike","50"}
+    //object format: {"pt","countr strike","50"})
 
     for (var e = 0; e < countryData.length; e++) {
         c = countryData[e];
@@ -686,7 +686,7 @@ function vis2Axis()
         }
     };
 
-    console.log(vis3Data);
+    //console.log(vis3Data);
     var divs = svg.selectAll('rect').data(vis3Data).enter();    
 
     divs.append("g")

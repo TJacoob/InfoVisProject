@@ -172,16 +172,16 @@ function drawData(c){
       .attr("y", function(d, i){return cfg.h/2*(1-Math.cos(i*cfg.radians/total))-20*Math.cos(i*cfg.radians/total);});
     var aux=0;
 
-    console.log(gamesArray[country.indexOf(c)][time]);
+    //console.log(gamesArray[country.indexOf(c)][time]);
 
     gamesArray[country.indexOf(c)].forEach(function(y, x){
       if(aux==time){
           dataValues = [];
-          console.log(y);
+          //console.log(y);
           g.selectAll(".nodes")
           .data(y, function(j, i){
-            console.log(y);
-            console.log(j);
+            //console.log(y);
+            //console.log(j);
             dataValues.push([
             cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)), 
             cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
