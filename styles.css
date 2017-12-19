@@ -219,3 +219,24 @@ a:visited { text-decoration: none ; color:inherit ; }
 {
   background-color: #e2e2e2;
 }
+
+
+/* Shapeshift */
+.shape {
+    border: 1px dashed #ccc;
+    position: relative;
+}
+
+.shape > div {
+    background: #CCC;
+    height: 100px;
+    position: absolute;
+    width: 80px;
+}
+
+.shape > div[data-ss-colspan='2'] { width: 170px; }
+
+.shape .ss-placeholder-child {
+    background: transparent;
+    border: 1px dashed red;
+}

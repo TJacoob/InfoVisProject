@@ -215,6 +215,10 @@ function startup(){
 			revert: true
 		});
   	} );
+
+    $(".shape").shapeshift({
+        minColumns: 1
+    });
     
     updateRadarChart();
     startupVi5();
